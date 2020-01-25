@@ -1,0 +1,31 @@
+.App {
+  /* background-color: #AF37A7; */
+  animation: colorchange 50s;
+  animation-iteration-count: infinite;
+  position: relative;
+  /* height: vh; */
+  /* width: 100vh; */
+  /* min-height: 100vh; */
+}
+ @keyframes colorchange
+    {
+      0%   {background: maroon;}
+      25%  {background: #AF37A7;}
+      50%  {background: steelblue;}
+      75%  {background: forestgreen;}
+      100% {background: orange;}
+    }
+/* .Particles {
+border: solid black 1px;
+} */
+.TopBoard{
+  position: absolute;
+  top: -38px;
+  left: 40%;
+  margin-left: -50px;
+  padding: 8px;
+  background: white;
+  /* opacity: .8; */
+  border: solid black 5px;
+  font-size: 60px;
+}

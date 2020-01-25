@@ -1,0 +1,13 @@
+.welcomeBox {
+  position: absolute;
+  top: 50%;
+  left: 30%;
+  margin-left: -50px;
+  margin-top: -50px;
+  border: solid black;
+  background-color: white;
+  border-radius: 5px;
+  padding: 5px 15px;
+  text-align: center;
+  height: 120px;
+}
