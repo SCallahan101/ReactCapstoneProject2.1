@@ -23,7 +23,7 @@ app.get("/api/ChaptersForStory/all", (req, res) => {
     res.status(500).json({message: "Something Wrong"});
   });
 });
-app.use("*", function(req, res) {
+app.use("/api/*", function(req, res) {
   res.status(404).json({ message: "Not Found" });
 });
 
