@@ -6,18 +6,18 @@ mongoose.Promise = global.Promise;
 
 
 const {PORT, DATABASE_URL} = require("./server/config");
-const {ChaptersForStory} = require("./server/models");
+const {ChapterList} = require("./server/models");
 
 const app = express();
 app.use(express.json());
 
 app.get("/api/ChaptersForStory/all", (req, res) => {
-  ChaptersForStory.find()
-  .then((chaptersforstories, err) => {
+  ChapterList.find()
+  .then((chapterlists, err) => {
     console.log(err);
-    console.log(chaptersforstories);
+    console.log(chapterlists);
     res.json({
-      chaptersforstories: chaptersforstories.map(chaptersforstory => chaptersforstory.serialize())
+      chapterlists: chapterlists.map(chapterlist => chapterlist.serialize())
     });
   })
   .catch(err => {

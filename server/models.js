@@ -15,6 +15,6 @@ chapterSchema.methods.serialize = function(){
   };
 };
 
-const ChaptersForStory = mongoose.model("ChaptersForStory", chapterSchema);
+const ChapterList = mongoose.model("ChapterList", chapterSchema);
 
-module.exports = { ChaptersForStory };
+module.exports = { ChapterList };
