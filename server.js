@@ -13,9 +13,11 @@ app.use(express.json());
 
 app.get("/api/ChaptersForStory/all", (req, res) => {
   ChaptersForStory.find()
-  .then(chapters => {
+  .then((chaptersforstories, err) => {
+    console.log(err);
+    console.log(chaptersforstories);
     res.json({
-      chapters: chapters.map(chapter => chapter.serialize())
+      chaptersforstories: chaptersforstories.map(chaptersforstory => chaptersforstory.serialize())
     });
   })
   .catch(err => {
@@ -60,6 +62,7 @@ function runServer(databaseUrl, port = PORT) {
 
 // this function closes the server, and returns a promise. we'll
 // use it in our integration tests later.
+mongoose.set('debug', true);
 function closeServer() {
   return mongoose.disconnect().then(() => {
     return new Promise((resolve, reject) => {
