@@ -1,8 +1,9 @@
 const express = require('express');
-// const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 // const chaptersRepo = require('./server/chaptersForStory');
 mongoose.Promise = global.Promise;
+
 
 
 const {PORT, DATABASE_URL} = require("./server/config");
@@ -10,6 +11,8 @@ const {ChapterList} = require("./server/models");
 
 const app = express();
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/api/ChaptersForStory/all", (req, res) => {
   ChapterList.find()
@@ -23,6 +26,17 @@ app.get("/api/ChaptersForStory/all", (req, res) => {
   .catch(err => {
     console.error(err);
     res.status(500).json({message: "Something Wrong"});
+  });
+});
+app.post('/api/ChaptersForStory/all', (req, res) => {
+  console.log(req.body);
+  let chapterData = new ChapterList(req.body);
+  chapterData.save()
+  .then(item => {
+    res.send(`Info passing through just fine: Chapter: ${req.body.chapterNum} Title: ${req.body.title} Content: ${req.body.content}`);
+  })
+  .catch(err => {
+    res.status(400).send("unable to add the new chapter to the database.");
   });
 });
 app.get('/api/*', (req, res) => {

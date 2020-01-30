@@ -7,7 +7,7 @@ import SettingChoices from './settingChoices';
 import Intro from './intro';
 import createTheStory from '../createTheStory/createTheStory';
 import TheEnd from '../atEnd/atEnd';
-// import TheList from '../createTheStory/totalProgress';
+import TheList from '../createTheStory/totalProgress';
 import SuggestionsList from './ideaSuggestions';
 // import 'react-tabs/style/react-tabs.css';
 
@@ -19,7 +19,7 @@ class TheMain extends Component {
           <div className='chapterStories'>
             Progress
           </div>
-      <p>Hold on TheList tag </p>
+      <TheList />
         </section>
         <section className='StoryMakingContainer'>
           <Switch>

@@ -6,68 +6,27 @@ class TheList extends Component {
   constructor(props){
     super(props);
     this.state = {
-      chapters: [],
-      error: null,
-      loading: false
+      chapterlists: []
     };
   }
   componentDidMount() {
-    this.loadBoard();
+    fetch('/api/ChaptersForStory/all')
+    .then(response => response.json())
+    .then(data => this.setState({chapterlists: data.chapterlists}));
   }
-  loadBoard(){
-    this.setState({
-      error: null,
-      loading: true
-    });
-    return fetch(`${API_BASE_URL}/board`)
-      .then(res => {
-        if(!res.ok){
-            return Promise.reject(res.statusText);
-        }
-          return res.json();
-      })
-      .then(testProgress =>
-          this.setState({
-            chapters: testProgress.chapters,
-            loading: false
-          })
-)
-.catch(err =>
-  this.setState({
-    error:'Could not load testProgress',
-    loading: false
-  })
-);
-}
-addChapter(chapterNum, title, content){
-  this.setState({
-    chapters: [...this.state.chapters, {chapterNum, title, content}]
-  });
-}
-render(){
-  let body;
-  if(this.state.error){
-    body = (
-      <div className='message message-error'>{this.state.error}</div>
+  render(){
+    const {chapterlists} = this.state;
+    return(
+      <ul className='coverList'>
+        {chapterlists.map(chapterlist =>
+          <li className='chapter' key={chapterlist._id}>
+            <div>Chapter: {chapterlist.chapterNum}</div>
+            <div>Title: {chapterlist.title}</div>
+          </li>
+        )}
+      </ul>
     );
-  } else if (this.state.loading){
-    body = (
-      <div className='message message-default'>Loading testProgress...</div>
-    );
-  }else {
-    const body = this.state.chapters.map((chapter, index) => (
-      <li className='chapter' key={index}>
-        <div>Chapter: {chapter.chapterNum}</div>
-        <div>Title: {chapter.title}</div>
-      </li>
-    ));
   }
-  return(
-    <ul className='coverList'>
-      {body}
-    </ul>
-  );
-}
 }
 
 
