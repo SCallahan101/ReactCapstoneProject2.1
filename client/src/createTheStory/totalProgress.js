@@ -3,22 +3,20 @@ import React, {Component} from 'react';
 // import {API_BASE_URL} from '../clientServerRoom/config';
 
 class TheList extends Component {
-  constructor(props){
-    super(props);
-    this.state = {
-      chapterlists: []
-    };
-  }
-  componentDidMount() {
-    fetch('/api/ChaptersForStory/all')
-    .then(response => response.json())
-    .then(data => this.setState({chapterlists: data.chapterlists}));
-  }
+  // constructor(props){
+  //   super(props);
+  //   console.log(props);
+  // }
+  // componentDidMount() {
+  //   fetch('/api/ChaptersForStory/all')
+  //   .then(response => response.json())
+  //   .then(data => this.setState({chapterlists: data.chapterlists}));
+  // }
   render(){
-    const {chapterlists} = this.state;
+    // const {chapterlists} = this.props.chapterlists;
     return(
       <ul className='coverList'>
-        {chapterlists.map(chapterlist =>
+        {this.props.chapterlists.map(chapterlist =>
           <li className='chapter' key={chapterlist._id}>
             <div>Chapter: {chapterlist.chapterNum}</div>
             <div>Title: {chapterlist.title}</div>

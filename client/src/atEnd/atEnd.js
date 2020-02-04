@@ -17,12 +17,13 @@ class TheEnd extends Component{
               Test1 Progress
             </p>
             <div className='progressContainer'>
-              <div className='progressBox'></div>
-              <div className='progressBox'></div>
-              <div className='progressBox'></div>
-              <div className='progressBox'></div>
-              <div className='progressBox'></div>
-              <div className='progressBox'></div>
+            <ul className='progressLine'>
+              {this.props.chapterlists.map(chapterlist => <li className='progressBox' key={chapterlist._id}>
+                  <div>Chapter: {chapterlist.chapterNum}</div>
+                  <div>Title: {chapterlist.title}</div>
+                </li>)}
+            </ul>
+
             </div>
           </TabPanel>
           <TabPanel>

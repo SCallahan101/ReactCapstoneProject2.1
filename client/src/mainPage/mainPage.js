@@ -12,21 +12,33 @@ import SuggestionsList from './ideaSuggestions';
 // import 'react-tabs/style/react-tabs.css';
 
 class TheMain extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      chapterlists: []
+    };
+  }
+  componentDidMount() {
+    fetch('/api/ChaptersForStory/all')
+    .then(response => response.json())
+    .then(data => this.setState({chapterlists: data.chapterlists}));
+  }
   render(){
+    const {chapterlists} = this.state;
     return (
       <div className='MainDashboard'>
         <section className='progressBar'>
           <div className='chapterStories'>
             Progress
           </div>
-      <TheList />
+          <TheList chapterlists={chapterlists} />
         </section>
         <section className='StoryMakingContainer'>
           <Switch>
             <Route path='/MainPage/ShortIntro' component={Intro} />
             <Route path='/MainPage/Choices' component={SettingChoices} />
             <Route path='/MainPage/CreateChapter' component={createTheStory} />
-            <Route path='/MainPage/WrapItUp' component={TheEnd} />
+            <Route path='/MainPage/WrapItUp' render={(props) => <TheEnd {...props} chapterlists={chapterlists} />} />
           </Switch>
         </section>
         <section className='ideaSuggestionsBar'>

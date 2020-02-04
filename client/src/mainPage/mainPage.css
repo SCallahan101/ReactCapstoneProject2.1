@@ -239,13 +239,22 @@ ul > .singleSuggestion {
 }
 
 .progressContainer{
-  display: flex;
-  flex-direction: row;
+  /* display: table; */
+  margin: 0 auto;
+}
+.progressContainer ul li {
+  display: inline-block;
+}
+.progressLine {
+  list-style: none;
+  padding: 0;
 }
 .progressBox{
+  /* display: inline; */
   width: 100px;
-  height: 100px;
+  height: auto;
   border: solid black 3px;
+  padding: 10px;
   margin: 5px;
 }
 .statsContainer{
