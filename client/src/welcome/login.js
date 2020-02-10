@@ -9,7 +9,7 @@ class Login extends Component {
   render(){
     return(
       <div>
-        <Link to={'/MainPage/ShortIntro'}><button>Enter</button></Link>
+        <Link to={'/MainPage/ShortIntro'}><button className='login-btn login-draw-border'>Enter</button></Link>
       </div>
     );
   }

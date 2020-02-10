@@ -1,6 +1,7 @@
 // import React, {useState} from 'react';
 import React, {Component} from 'react';
 import {Link} from 'react-router-dom';
+import ModalBox from './modal';
 // import TheList from './totalProgress';
 class ListToAdd extends Component {
   state = {
@@ -32,9 +33,21 @@ class ListToAdd extends Component {
     const body = await response.text();
     this.setState({responseToPost: body});
   };
+  state = {
+    show: false
+  };
+  showModal = e => {
+    this.setState({
+      show: !this.state.show
+    });
+  };
   render(){
     return (
       <div>
+      <button className='modal' onClick={e => {
+        this.showModal(e);
+      }}>Open the whatever it is...</button>
+      <ModalBox onClose={this.showModal} show={this.state.show}>
       <form className='fillingStory' onSubmit={this.handleSubmit}>
         <p className='thoughts'>Type in your thoughts:</p>
         What chapter is it now? <input className='chapterNumber' type='text' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
@@ -44,10 +57,14 @@ class ListToAdd extends Component {
         <p className='thoughts'>Type in your thoughts:</p>
         <textarea className='storyBox' value={this.setState.content} onChange={e => this.setState({content: e.target.value})} name='content'>Go crazy!</textarea>
         <button type='submit'>Add new chapter! </button>
-        <Link to={'/MainPage/Choices'}>Go Back</Link>
+        <button className='modal' onClick={e => {
+          this.showModal(e);
+        }}>Cancel the Modal</button>
+        <Link to={'/MainPage/Choices'}>Go Back to background choices</Link>
         <span> </span>
         <Link to={'/MainPage/WrapItUp'}>Done with my story!</Link>
       </form>
+      </ModalBox>
         <p>{this.state.responseToPost}</p>
       </div>
     )
