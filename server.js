@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
+const path = require('path');
 // const chaptersRepo = require('./server/chaptersForStory');
 mongoose.Promise = global.Promise;
 
@@ -42,9 +43,15 @@ app.post('/api/ChaptersForStory/all', (req, res) => {
 app.get('/api/*', (req, res) => {
   res.json({ok: true});
 });
-app.use("*", function(req, res) {
-  res.status(404).json({ message: "Not Found" });
-});
+if (process.env.NODE_ENV === 'production') {
+  // Serve any static files
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  // Handle React routing, return all requests to React app
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}
 
 // closeServer needs access to a server object, but that only
 // gets created when `runServer` runs, so we declare `server` here
