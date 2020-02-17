@@ -1,6 +1,8 @@
 // import React, {useState} from 'react';
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+
 import ModalBox from './modal';
 // import TheList from './totalProgress';
 class ListToAdd extends Component {
@@ -32,6 +34,8 @@ class ListToAdd extends Component {
     });
     const body = await response.text();
     this.setState({responseToPost: body});
+    console.log(this.state.responseToPost);
+  // on bottom of html list <p>{this.state.responseToPost}</p>
   };
   state = {
     show: false
@@ -44,28 +48,21 @@ class ListToAdd extends Component {
   render(){
     return (
       <div>
-      <button className='modal' onClick={e => {
-        this.showModal(e);
-      }}>Open the whatever it is...</button>
+      <button className='modal outside-btn' onClick={e => { this.showModal(e); }}>Create new chapter</button>
       <ModalBox onClose={this.showModal} show={this.state.show}>
       <form className='fillingStory' onSubmit={this.handleSubmit}>
-        <p className='thoughts'>Type in your thoughts:</p>
-        What chapter is it now? <input className='chapterNumber' type='text' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
+        <input className='chapterNumber' type='text' placeholder='Chapter-nth?' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
         <br />
-        Type your title: <input className='titleInput' type='text' value={this.state.title} onChange={e => this.setState({title: e.target.value})} name='title' />
+        <input className='titleInput' type='text' placeholder='Type your title' value={this.state.title} onChange={e => this.setState({title: e.target.value})} name='title' />
         <br />
-        <p className='thoughts'>Type in your thoughts:</p>
         <textarea className='storyBox' value={this.setState.content} onChange={e => this.setState({content: e.target.value})} name='content'>Go crazy!</textarea>
-        <button type='submit'>Add new chapter! </button>
-        <button className='modal' onClick={e => {
-          this.showModal(e);
-        }}>Cancel the Modal</button>
-        <Link to={'/MainPage/Choices'}>Go Back to background choices</Link>
+        <button className='chapterSubmit' type='submit'>Add Chapter </button>
+        <button className='modal inside-btn' onClick={e => { this.showModal(e); }}>X</button>
+        <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' ><button className='goPrevious modal-btn'>Change Background</button></NavLink>
         <span> </span>
-        <Link to={'/MainPage/WrapItUp'}>Done with my story!</Link>
+        <NavLink to={'/MainPage/WrapItUp'} activeClassName='finalizeStory' ><button className='finishUp modal-btn'>Finalize the Story</button></NavLink>
       </form>
       </ModalBox>
-        <p>{this.state.responseToPost}</p>
       </div>
     )
   }

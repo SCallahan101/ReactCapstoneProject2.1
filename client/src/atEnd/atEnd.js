@@ -8,13 +8,13 @@ class TheEnd extends Component{
       <div>
         <Tabs>
           <TabList>
-            <Tab>Your Progress</Tab>
-            <Tab>Compare Stats</Tab>
-            <Tab>The End Tab</Tab>
+            <Tab>Your Story</Tab>
+            <Tab>Comparison Stats</Tab>
+            <Tab>Exit</Tab>
           </TabList>
           <TabPanel>
             <p>
-              Test1 Progress
+              The Story
             </p>
             <div className='progressContainer'>
             <ul className='progressLine'>
@@ -23,12 +23,11 @@ class TheEnd extends Component{
                   <div>Title: {chapterlist.title}</div>
                 </li>)}
             </ul>
-
             </div>
           </TabPanel>
           <TabPanel>
             <p>
-              Test2 Stats
+               Overall Stats with other users
             </p>
               <div className='statsContainer'>
                 <div className='statsBars'></div>
@@ -39,7 +38,7 @@ class TheEnd extends Component{
               </div>
           </TabPanel>
           <TabPanel>
-            <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border'>Exit back to the beginning</button></NavLink>
+            <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border'>Exit back to Front Page</button></NavLink>
           </TabPanel>
         </Tabs>
       </div>

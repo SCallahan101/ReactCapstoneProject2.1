@@ -36,6 +36,7 @@ ul > .chapter {
   border-right: solid black 2px;
   border-bottom-right-radius: 5px;
   width: 90%;
+  padding-bottom: 2px;
   margin-top: 5px;
 }
 .progressBar > div {
@@ -131,15 +132,6 @@ ul > .singleSuggestion {
   height: 78vh;
   object-fit: fill;
 }
-.modal{
-  width: auto;
-  height: 50px;
-  /* background: white; */
-  position: absolute;
-  top: 100px;
-  left: 200px;
-  /* padding: 10px; */
-}
 /* .test-box{
   width: 50px;
   height: 50px;
@@ -156,21 +148,29 @@ ul > .singleSuggestion {
 } */
 
 .fillingStory{
-  text-align: center;
+  /* text-align: center; */
   position: absolute;
   bottom: 0px;
+  /* margin: 0 100px; */
   left: 10%;
   background-color: white;
   padding: 12px;
-  width: 80%;
+  width: 78%;
+  height: 27vh;
 }
-/* .thoughts{
-
-} */
+.thoughts{
+  text-align: center;
+  margin: 0px;
+}
 .storyBox{
-  /* width: 55vh;
-  height: 15vh; */
-  margin-bottom: 5px;
+  width: 92vh;
+  height: 16vh;
+  /* margin-bottom: 5px; */
+  position: absolute;
+  top: 45px;
+  left: 82px;
+  /* margin-left: -150px;*/
+  text-align: center;
 }
 
 /* .userProgress{
@@ -267,16 +267,15 @@ ul > .singleSuggestion {
   margin: 0 auto;
 }
 .progressContainer ul li {
-  display: inline-block;
+  display: inline-grid;
 }
 .progressLine {
   list-style: none;
   padding: 0;
 }
 .progressBox{
-  /* display: inline; */
   width: 100px;
-  height: auto;
+  height: 75px;
   border: solid black 3px;
   padding: 10px;
   margin: 5px;
@@ -355,3 +354,62 @@ ul > .singleSuggestion {
    border-bottom: 1px solid #333333;
    border-left: 1px solid #CCCCCC;
 } */
+/* .modal{
+  width: auto;
+  height: auto;
+} */
+.outside-btn{
+  position: absolute;
+  bottom: 25px;
+  margin-left: -71px;
+  left: 50%;
+  padding: 10px;
+  width: 142px;
+}
+.inside-btn{
+  position: absolute;
+  top: 12px;
+  right: 12px;
+}
+.modal-btn{
+
+}
+.chapterNumber{
+  position: absolute;
+  top: 12px;
+  left: 30%;
+  padding: 2px;
+  width: 140px;
+  text-align: center;
+}
+.titleInput{
+  position: absolute;
+  top: 12px;
+  right: 30%;
+  padding: 2px;
+  width: 140px;
+  text-align: center;
+}
+.chapterStory{
+  margin: 19px 6px 5px;
+}
+.goPrevious{
+  position: absolute;
+  top: 12px;
+  left: 12px;
+}
+.chapterSubmit{
+  position: absolute;
+  bottom: 12px;
+  left: 30%;
+  /* margin-left: -60px; */
+  width: 148px;
+  padding: 2px;
+}
+.finishUp{
+  position: absolute;
+  bottom: 12px;
+  right: 30%;
+  width: 148px;
+  padding: 2px;
+}

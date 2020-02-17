@@ -15,9 +15,9 @@
       75%  {background: forestgreen;}
       100% {background: orange;}
     }
-/* .Particles {
-border: solid black 1px;
-} */
+.Particles {
+height: 100vh;
+}
 .TopBoard{
   position: absolute;
   top: -38px;

@@ -14,14 +14,17 @@ class TheList extends Component {
   // }
   render(){
     // const {chapterlists} = this.props.chapterlists;
+    const obj = this.props.chapterlists
+    .sort((a, b) => (a.chapterNum > b.chapterNum) ? 1: -1)
+    .map(chapterlist =>
+      <li className='chapter' key={chapterlist._id}>
+        <div>Chapter: {chapterlist.chapterNum}</div>
+        <div>Title: {chapterlist.title}</div>
+      </li>
+    );
     return(
       <ul className='coverList'>
-        {this.props.chapterlists.map(chapterlist =>
-          <li className='chapter' key={chapterlist._id}>
-            <div>Chapter: {chapterlist.chapterNum}</div>
-            <div>Title: {chapterlist.title}</div>
-          </li>
-        )}
+        {obj}
       </ul>
     );
   }
