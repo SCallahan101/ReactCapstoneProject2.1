@@ -1,7 +1,7 @@
 // import React, {useState} from 'react';
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import WindowCloseSvg from '../SvgIcons/window-close-regular.svg';
 
 import ModalBox from './modal';
 // import TheList from './totalProgress';
@@ -57,8 +57,7 @@ class ListToAdd extends Component {
         <br />
         <textarea className='storyBox' value={this.setState.content} onChange={e => this.setState({content: e.target.value})} name='content'>Go crazy!</textarea>
         <button className='chapterSubmit' type='submit'>Add Chapter </button>
-        <button className='modal inside-btn' onClick={e => { this.showModal(e); }}>X</button>
-        <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' ><button className='goPrevious modal-btn'>Change Background</button></NavLink>
+        <button className='modal inside-btn' onClick={e => { this.showModal(e); }}><img src={WindowCloseSvg} /></button>
         <span> </span>
         <NavLink to={'/MainPage/WrapItUp'} activeClassName='finalizeStory' ><button className='finishUp modal-btn'>Finalize the Story</button></NavLink>
       </form>

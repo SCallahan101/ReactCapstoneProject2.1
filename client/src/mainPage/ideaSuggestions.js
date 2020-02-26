@@ -18,6 +18,26 @@ const suggestions = [
   },
   {option: "Discover"
   },
+  {option: "Ambush"
+  },
+  {option: "Murdered"
+  },
+  {option: "Suspense"
+  },
+  {option: "Crossroad"
+  },
+  {option: "Spying"
+  },
+  {option: "Following Clues"
+  },
+  {option: "Loss"
+  },
+  {option: "Bizarre"
+  },
+  {option: "Disease /Virus /Ravage"
+  },
+  {option: "Family Dispute"
+  },
 ];
 
 setInterval(() => {

@@ -1,11 +1,14 @@
 import React, {Component} from 'react';
+import {NavLink} from 'react-router-dom';
 import ListToAdd from './addChapterForm';
+import BackButton from '../SvgIcons/backspace-solid.svg';
 
 
 class createTheStory extends Component {
   render(){
     return (
       <div>
+        <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' ><button className='goPrevious modal-btn'><img src={BackButton} /></button></NavLink>
         <img className='BackgroundImageSetting' src={this.props.location.state.referrer} alt='various background image'/>
         <ListToAdd />
       </div>

@@ -40,6 +40,59 @@ app.post('/api/ChaptersForStory/all', (req, res) => {
     res.status(400).send("unable to add the new chapter to the database.");
   });
 });
+// app.delete('/api/FinalizeTheStory/:id', (req, res) => {
+//   ChapterList.delete(req.params.id);
+//   console.log(`Delete the chapter from the list \`${req.params.id}\``);
+//   res.status(204).end();
+// });
+app.delete('/api/FinalizeTheStory/:id', (req, res) => {
+  ChapterList.findByIdAndRemove(req.params.id)
+  .then(chapterlist => res.status(204).end())
+  .catch(err => res.status(500).json({message: 'Something went wrong with app.delete area'}));
+});
+
+app.put('/api/FinalizeTheStory/:id', (req, res) => {
+  if(!(req.params.id && req.body.id && req.params.id === req.body.id)){
+    const message =
+      `Request path id (${req.params.id}) and request body id ` + `(${req.body.id}) must match`;
+      console.error(message);
+      return res.status(400).json({message: message});
+  }
+  const toUpdate = {};
+  const updateableFields = ["chapterNum", "title", "content"];
+  updateableFields.forEach(field =>{
+    if(field in req.body){
+      toUpdate[field] = req.body[field];
+    }
+  });
+  ChapterList
+    .findByIdAndUpdate(req.params.id, {$set: toUpdate})
+    .then(chapterlist => res.status(204).end())
+    .catch(err => res.status(500).json({message: "Internal server error"}));
+  // const requiredFields = ['chapterNum', 'title', 'content'];
+  // for(let i=0; i<requiredFields.length; i++){
+  //   const field = requiredFields[i];
+  //   if(!(field in req.body)) {
+  //     const message = `Missing \`${field}\` in request body`
+  //     console.error(message);
+  //     return res.status(400).send(message);
+  //   }
+  // }
+  // if(req.params.id !== req.body.id){
+  //   const message = `Request path id (${req.params.id}) and request body id (${req.body.id}) must match`;
+  //   console.error(message);
+  //   return res.status(400).send(message);
+  // }
+  // console.log(`Updating shopping list item \`${req.params.id}\``);
+  // ChapterList.update({
+  //   id: req.params.id,
+  //   chapterNum: req.body.chapterNum,
+  //   title: req.body.title,
+  //   content: req.body.content
+  // });
+  // res.status(204).end();
+});
+
 app.get('/api/*', (req, res) => {
   res.json({ok: true});
 });

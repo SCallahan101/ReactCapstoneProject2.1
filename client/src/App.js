@@ -4,6 +4,8 @@ import TheMain from './mainPage/mainPage';
 import Welcome from './welcome/welcome';
 import Particles from 'react-particles-js';
 import './App.css';
+import ReactDOM from 'react-dom'
+
 
 // <Route path='/FinalizeStoryAndStats' component={} />
 // <Route component={NotFoundPage} />
@@ -13,7 +15,7 @@ class App extends Component {
   return (
     <div className='App'>
       <header>
-        <h1 className='TopBoard'>DraftBoard</h1>
+        <h1 className='TopBoard'>Your Sci-Fi StoryBoard</h1>
       </header>
       <main className='mainFrameApp'>
         <Switch>
