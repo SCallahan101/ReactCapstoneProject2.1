@@ -59,7 +59,6 @@ class ListToAdd extends Component {
         <button className='chapterSubmit' type='submit'>Add Chapter </button>
         <button className='modal inside-btn' onClick={e => { this.showModal(e); }}><img src={WindowCloseSvg} /></button>
         <span> </span>
-        <NavLink to={'/MainPage/WrapItUp'} activeClassName='finalizeStory' ><button className='finishUp modal-btn'>Finalize the Story</button></NavLink>
       </form>
       </ModalBox>
       </div>

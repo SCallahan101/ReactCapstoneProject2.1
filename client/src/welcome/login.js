@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import {Route, Link} from 'react-router-dom';
-import MainPage from '../mainPage/mainPage';
+import {Link} from 'react-router-dom';
+import Registration from './registrationPage';
 
 class Login extends Component {
   //login menu
@@ -9,7 +9,12 @@ class Login extends Component {
   render(){
     return(
       <div>
-        <Link to={'/MainPage/ShortIntro'}><button className='login-btn login-draw-border'>Enter</button></Link>
+        <form>
+          <input className='loginBox' type='text' placeholder='Enter your username' />
+          <br/>
+          <Link to={'/MainPage/ShortIntro'}><button className='login-btn login-draw-border'>Enter</button></Link>
+        </form>
+        <Registration />
       </div>
     );
   }

@@ -2,13 +2,25 @@ import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import ListToAdd from './addChapterForm';
 import BackButton from '../SvgIcons/backspace-solid.svg';
+import Finalize from '../SvgIcons/book-solid.svg';
 
 
 class createTheStory extends Component {
   render(){
     return (
       <div>
-        <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' ><button className='goPrevious modal-btn'><img src={BackButton} /></button></NavLink>
+        <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' >
+          <button className='goPrevious modal-btn'>
+            <span className='back-tooltip'>Previous</span>
+            <img src={BackButton} />
+          </button>
+        </NavLink>
+        <NavLink to={'/MainPage/WrapItUp'} activeClassName='finalizeStory' >
+          <button className='finishUp modal-btn'>
+          <span className='finalize-tooltip'>Finalize Your Story</span>
+            <img src={Finalize} />
+          </button>
+        </NavLink>
         <img className='BackgroundImageSetting' src={this.props.location.state.referrer} alt='various background image'/>
         <ListToAdd />
       </div>

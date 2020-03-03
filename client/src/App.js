@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Route, Switch} from 'react-router-dom';
 import TheMain from './mainPage/mainPage';
 import Welcome from './welcome/welcome';
+import Registration from './welcome/registrationPage';
 import Particles from 'react-particles-js';
 import './App.css';
 import ReactDOM from 'react-dom'

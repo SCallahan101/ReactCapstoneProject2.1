@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import shuffle from 'shuffle-array';
 
 const suggestions = [
@@ -40,18 +40,48 @@ const suggestions = [
   },
 ];
 
-setInterval(() => {
-  shuffle(suggestions);
-}, 1000);
-
-const SuggestionsList = () => (
-  <ul className='listOfSuggestions'>
-    {suggestions.map(idea => (
-      <li className='singleSuggestion'>
-        <div>👋 {idea.option}</div>
-      </li>
-    ))}
-  </ul>
-);
+class SuggestionsList extends Component {
+  state = {
+    suggestions: [...suggestions]
+  }
+  componentDidMount(){
+    setInterval(() => {
+      shuffle(suggestions);
+      this.setState({suggestions: [...suggestions]});
+    }, 10000);
+  }
+  render(){
+    return (
+      <ul className='listOfSuggestions'>
+       {suggestions.map(idea => (
+         <li className='singleSuggestion'>
+           <div>👋 {idea.option}</div>
+         </li>
+       ))}
+     </ul>
+   );
+  }
+}
+// var counter = 0;
+// var i = setInterval(function() {
+//   shuffle(suggestions);
+//   counter++;
+//   if(counter === 5){
+//     clearInterval(i);
+//   }
+// }, 1000);
+// setInterval(() => {
+//   shuffle(suggestions);
+// }, 1000);
+//
+// const SuggestionsList = () => (
+//   <ul className='listOfSuggestions'>
+//     {suggestions.map(idea => (
+//       <li className='singleSuggestion'>
+//         <div>👋 {idea.option}</div>
+//       </li>
+//     ))}
+//   </ul>
+// );
 
 export default SuggestionsList;

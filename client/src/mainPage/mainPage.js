@@ -19,9 +19,12 @@ class TheMain extends Component {
     };
   }
   componentDidMount() {
-    fetch('/api/ChaptersForStory/all')
-    .then(response => response.json())
-    .then(data => this.setState({chapterlists: data.chapterlists}));
+    setInterval(() => {
+      fetch('/api/ChaptersForStory/all')
+      .then(response => response.json())
+      .then(data => this.setState({chapterlists: data.chapterlists}));
+    }, 4000);
+    //This somehow linked with img src...werid me out.//
   }
   render(){
     const {chapterlists} = this.state;

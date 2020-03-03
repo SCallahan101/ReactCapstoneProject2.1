@@ -81,7 +81,7 @@ handleEditSubmit = async e =>{
             <Tab>Exit</Tab>
           </TabList>
           <TabPanel>
-            <h2>
+            <h2 className='endTitle'>
               The Story
             </h2>
             <div className='progressContainer'>
@@ -91,7 +91,10 @@ handleEditSubmit = async e =>{
                   <div>Chapter: {chapterlist.chapterNum}</div>
                   <div>Title: {chapterlist.title}</div>
                   <div hidden>{chapterlist.content}</div>
-                  <button className='editTheChapter' onClick={e => { this.openEditModal(e); }}><img src={EditSvg} value={chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content} onClick={this.selectedChapter.bind(this, chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content)} /></button>
+                  <button className='editTheChapter' onClick={e => { this.openEditModal(e); }}>
+                  <span className='edit-tooltip'>Edit</span>
+                    <img src={EditSvg} value={chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content} onClick={this.selectedChapter.bind(this, chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content)} />
+                  </button>
                 </li>)}
             </ul>
             </div>

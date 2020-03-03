@@ -105,7 +105,7 @@ ul > .singleSuggestion {
   cursor: pointer;
 }
 .top {
-  margin: 20px 40px 5px;
+  margin: 20px 44px 5px;
 }
 /* .base {
   margin-left: 105px;
@@ -338,6 +338,7 @@ ul > .singleSuggestion {
   background-color: white;
   position: relative;
 }
+
 .deleteChapter{
   background: white;
   border: none;
@@ -362,6 +363,30 @@ ul > .singleSuggestion {
   bottom: -5px;
   left: 50%;
   margin-left: -15px;
+}
+.editTheChapter .edit-tooltip{
+  visibility: hidden;
+  width: auto;
+  padding: 5px;
+  border: 1px solid black;
+  background: white;
+  position: absolute;
+  top: 35px;
+  right: -2px;
+  z-index: 1;
+}
+.editTheChapter:hover .edit-tooltip{
+  visibility: visible;
+}
+.editTheChapter .edit-tooltip::after{
+  content: " ";
+position: absolute;
+bottom: 100%;  /* At the top of the tooltip */
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: transparent transparent white transparent;
 }
 .editTheChapter:hover{
   cursor: pointer;
@@ -488,30 +513,87 @@ ul > .singleSuggestion {
   position: absolute;
   top: 12px;
   left: 12px;
-  width: 44px;
+  width: 45px;
   height: 28px;
   background: white;
   border: none;
-  border-radius: 3px;
+  border-radius: 10px;
+}
+.goPrevious .back-tooltip{
+  visibility: hidden;
+  width: auto;
+  padding: 5px;
+  background: white;
+    border: 1px solid black;
+  position: absolute;
+  top: 35px;
+  right: -20%;
+  z-index: 1;
+}
+.goPrevious:hover{
+  cursor: pointer;
+}
+.goPrevious:hover .back-tooltip{
+  visibility: visible;
+}
+.goPrevious .back-tooltip::after{
+  content: " ";
+position: absolute;
+bottom: 100%;  /* At the top of the tooltip */
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: transparent transparent white transparent;
 }
 .chapterSubmit{
   position: absolute;
-  bottom: 12px;
-  left: 30%;
-  /* margin-left: -60px; */
-  width: 148px;
-  padding: 2px;
-  background-color: #28739E;
-  color: white;
+bottom: 12px;
+left: 50%;
+margin-left: -74px;
+width: 148px;
+padding: 2px;
+background-color: #28739E;
+color: white;
 }
 .finishUp{
   position: absolute;
-  bottom: 12px;
-  right: 30%;
-  width: 148px;
-  padding: 2px;
-  background-color: #28739E;
-  color: white;
+      top: 12px;
+      /* bottom: 12px; */
+      right: 12px;
+      width: 32px;
+      height: 37px;
+      padding: 0px;
+      border-radius: 5px;
+      border: none;
+      background: white;
+}
+.finishUp .finalize-tooltip{
+  visibility: hidden;
+  width: 70px;
+  padding: 5px;
+  background: white;
+    border: 1px solid black;
+  position: absolute;
+  top: 44px;
+  left: -1.7vw;
+  z-index: 1;
+}
+.finishUp:hover{
+  cursor: pointer;
+}
+.finishUp:hover .finalize-tooltip{
+  visibility: visible;
+}
+.finishUp .finalize-tooltip::after{
+  content: " ";
+position: absolute;
+bottom: 100%;  /* At the top of the tooltip */
+left: 50%;
+margin-left: -5px;
+border-width: 5px;
+border-style: solid;
+border-color: transparent transparent white transparent;
 }
 /* .hidden-content{
   display: none;
@@ -521,4 +603,14 @@ ul > .singleSuggestion {
 }
 .draftContent{
   margin: 0px;
+}
+.endTitle{
+  margin: 0px;
+font-size: 54px;
+  font-size: 52px;
+    color: white;
+    font-weight: bolder;
+    text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
+    font-family: "Drafting";
+    font-weight: normal;
 }
