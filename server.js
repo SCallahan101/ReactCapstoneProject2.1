@@ -9,11 +9,27 @@ mongoose.Promise = global.Promise;
 
 const {PORT, DATABASE_URL} = require("./server/config");
 const {ChapterList} = require("./server/models");
+const {Storyteller} = require("./server/storytellersModels");
 
 const app = express();
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+//user api
+app.post('/api/login/registration', (req, res) => {
+  console.log(req.body);
+  let storytellerData = new Storyteller(req.body);
+  storytellerData.save()
+  .then(member => {
+    res.send(`Info passing through just fine: Username: ${req.body.username} Member name: ${req.body.firstName} ${req.body.lastName}, Email: ${req.body.email}`);
+  })
+  .catch(err => {
+    res.status(400).send("unable to add the new member to the database.");
+  });
+});
+
+
+//
 
 app.get("/api/ChaptersForStory/all", (req, res) => {
   ChapterList.find()

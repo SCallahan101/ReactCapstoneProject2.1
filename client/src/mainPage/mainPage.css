@@ -158,7 +158,7 @@ ul > .singleSuggestion {
   bottom: 0px;
   /* margin: 0 100px; */
   left: 10%;
-  background-color: #FAFAFA;
+  background-color: whitesmoke;
   padding: 12px;
   width: 78%;
   height: 27vh;
@@ -170,7 +170,7 @@ ul > .singleSuggestion {
       /* margin: 0 100px; */
       margin-left: -21%;
       left: 50%;
-      background-color: #FAFAFA;
+      background-color: whitesmoke;
       padding: 12px;
       width: 40%;
       height: 30vh;
