@@ -70,7 +70,7 @@ errorClass(error){
 }
 handleSubmit = async e =>{
   e.preventDefault();
-  const response = await fetch('/api/login/registration', {
+  const response = await fetch('/api/storytellers/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

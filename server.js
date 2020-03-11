@@ -2,21 +2,46 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
 const path = require('path');
+const passport = require('passport');
+const morgan = require('morgan');
 // const chaptersRepo = require('./server/chaptersForStory');
+
+const {router: storytellersRouter} = require('./client/src/storytellers');
+const {router: authRouter, localStrategy, jwtStrategy} = require('./client/src/authStorytellers');
 mongoose.Promise = global.Promise;
 
 
 
 const {PORT, DATABASE_URL} = require("./server/config");
 const {ChapterList} = require("./server/models");
-const {Storyteller} = require("./server/storytellersModels");
+const {Storyteller} = require("./client/src/storytellers/models");
 
 const app = express();
+
+app.use(morgan('common'));
+
 app.use(express.json());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 //user api
-app.post('/api/login/registration', (req, res) => {
+passport.use(localStrategy);
+passport.use(jwtStrategy);
+
+app.use('/api/storytellers/', storytellersRouter);
+app.use('/api/auth/', authRouter);
+
+const jwtAuth = passport.authenticate('jwt', {session: false});
+
+app.get('/api/protected', jwtAuth, (req, res) => {
+  return res.json({
+    data:'rosebud'
+  });
+});
+app.use('*', (req, res) => {
+  return res.status(404).json({ message: 'Not Found' });
+});
+
+app.post('/api/storytellers/', (req, res) => {
   console.log(req.body);
   let storytellerData = new Storyteller(req.body);
   storytellerData.save()
