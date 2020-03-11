@@ -37,9 +37,6 @@ app.get('/api/protected', jwtAuth, (req, res) => {
     data:'rosebud'
   });
 });
-app.use('*', (req, res) => {
-  return res.status(404).json({ message: 'Not Found' });
-});
 
 app.post('/api/storytellers/', (req, res) => {
   console.log(req.body);
