@@ -95,9 +95,8 @@ handleSubmit = async e =>{
           <form className='registrationForm' onSubmit={this.handleSubmit}>
             <input className='username reg-box' type='text' placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
             <br />
-            <div className={`form-group ${this.errorClass(this.state.formErrors.password)}`} >
+            <div className={`${this.errorClass(this.state.formErrors.password)}`}></div>
             <input className='password reg-box' type='text' placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
-            </div>
             <br />
             <input className='firstName reg-box' type='text' placeholder='Your first name?' name='firstName' value={this.state.firstName} onChange={e => this.setState({firstName: e.target.value})}/>
             <br />

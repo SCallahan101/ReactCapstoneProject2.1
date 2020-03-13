@@ -38,6 +38,17 @@ app.get('/api/protected', jwtAuth, (req, res) => {
   });
 });
 
+// app.post('/api/auth/login', (req, res) => {
+//     console.log('In Post area: ' + req.body);
+//     Storyteller.find()
+//     .then(res => {
+//       res.send(`${req.body.username} log attempt with password ${req.body.password}`);
+//     })
+//     .catch(err => {
+//       res.status(400).send("unable to log in due to some issues going on");
+//     });
+//   });
+
 app.post('/api/storytellers/', (req, res) => {
   console.log(req.body);
   let storytellerData = new Storyteller(req.body);
