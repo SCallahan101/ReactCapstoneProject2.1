@@ -7,7 +7,7 @@ const morgan = require('morgan');
 // const chaptersRepo = require('./server/chaptersForStory');
 
 const {router: storytellersRouter} = require('./client/src/storytellers');
-const {router: authRouter, localStrategy, jwtStrategy} = require('./client/src/authStorytellers');
+const {router: authRouter, localStrategy, jwtStrategy} = require('./server/authStorytellers');
 mongoose.Promise = global.Promise;
 
 
@@ -20,9 +20,23 @@ const app = express();
 
 app.use(morgan('common'));
 
+// app.use(function (req, res, next) {
+//   res.header('Access-Control-Allow-Origin', '*');
+//   res.header('Access-Control-Allow-Headers', 'Content-Type,Authorization');
+//   res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,PATCH,DELETE');
+//   if (req.method === 'OPTIONS') {
+//     return res.send(204);
+//   }
+//   next();
+// });
+
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({extended: false}));
+app.use(passport.initialize());
+app.use(passport.session());
+// require('./server/authStorytellers/strategies.js')(passport);
+
 //user api
 passport.use(localStrategy);
 passport.use(jwtStrategy);
@@ -38,15 +52,9 @@ app.get('/api/protected', jwtAuth, (req, res) => {
   });
 });
 
+
 // app.post('/api/auth/login', (req, res) => {
-//     console.log('In Post area: ' + req.body);
-//     Storyteller.find()
-//     .then(res => {
-//       res.send(`${req.body.username} log attempt with password ${req.body.password}`);
-//     })
-//     .catch(err => {
-//       res.status(400).send("unable to log in due to some issues going on");
-//     });
+//
 //   });
 
 app.post('/api/storytellers/', (req, res) => {

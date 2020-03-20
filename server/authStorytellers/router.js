@@ -2,9 +2,10 @@
 const express = require('express');
 const passport = require('passport');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser');
 const jwt = require('jsonwebtoken');
 
-const config = require('../../../server/config');
+const config = require('../config');
 const router = express.Router();
 
 const createAuthToken = function(user) {
@@ -19,8 +20,11 @@ const localAuth = passport.authenticate('local', {session: false});
 router.use(bodyParser.json());
 // The user provides a username and password to login
 router.post('/login', localAuth, (req, res) => {
+  console.log(`In /login request successfully received Username: ${req.body.username} and PW: ${req.body.password}`);
   const authToken = createAuthToken(req.user.serialize());
   res.json({authToken});
+  console.log('AuthToken successfully retrieved!');
+  // res.cookie('data', 'Bearer ' + authToken, {path: '/api/protected'});
 });
 
 const jwtAuth = passport.authenticate('jwt', {session: false});

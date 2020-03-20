@@ -19,13 +19,13 @@ class Login extends Component {
 };
 handleSubmit = e => {
   e.preventDefault();
-  console.log(`${this.state.username} / ${this.state.password}`);
-    fetch('/api/auth/login', {
+  console.log(`From the form before FETCH: ${this.state.username} / ${this.state.password}`);
+    const response = fetch('/api/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({username: this.state.username, password: this.state.password}),
+    body: JSON.stringify({username: this.state.username, password: this.state.password})
   });
   // console.log(`${this.state.loginUsername} + ' ' + ${this.state.loginPw}`);
 };
@@ -38,7 +38,7 @@ handleSubmit = e => {
           <input className='loginPw' type={passwordIsMasked ? 'password' : 'text'} placeholder='Enter your password' value={this.state.password} onChange={e => this.setState({password: e.target.value})}/>
           <button className='togglePeek'onClick={this.togglePeek} ><img src={OpenEye} /></button>
           <br/>
-          <input type='submit' />
+          <button type='submit' className='login-btn login-draw-border'>Enter</button>
         </form>
         <Registration />
       </div>
