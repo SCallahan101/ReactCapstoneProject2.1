@@ -24,17 +24,17 @@ router.post('/login', localAuth, (req, res) => {
   console.log(`In /login request successfully received Username: ${req.body.username} and PW: ${req.body.password}`);
   const authToken = createAuthToken(req.user.serialize());
   res.json({authToken});
-  console.log('AuthToken successfully retrieved!');
-  fetch('http://localhost:3000/api/protected', {
-    method: "GET",
-    headers: {
-      'Authorization': 'Bearer ' + authToken,
-      'Content-Type': 'application/json'
-    },
-    dataType: 'json'
-  }).then((res) => {
-    res.json('It works with jwt');
-  }).catch((error) => console.error(error));
+  console.log('AuthToken successfully retrieved! : ' + authToken);
+  // fetch('http://localhost:3000/api/protected', {
+  //   method: "GET",
+  //   headers: {
+  //     'Authorization': 'Bearer ' + authToken,
+  //     'Content-Type': 'application/json'
+  //   },
+  //   dataType: 'json'
+  // }).then((res) => {
+  //   res.json('It works with jwt');
+  // }).catch((error) => console.error(error));
 });
 
 const jwtAuth = passport.authenticate('jwt', {session: false});

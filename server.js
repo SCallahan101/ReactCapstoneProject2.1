@@ -48,7 +48,7 @@ const jwtAuth = passport.authenticate('jwt', {session: false});
 
 app.get('/api/protected', jwtAuth, (req, res) => {
   console.log('Login GET worked!');
-   res.json({ data:'rosebud' });
+   res.json({ data:'success' });
 });
 
 

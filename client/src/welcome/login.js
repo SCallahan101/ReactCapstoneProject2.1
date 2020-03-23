@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import Registration from './registrationPage';
 import OpenEye from '../SvgIcons/eye-regular.svg';
 import CloseEye from '../SvgIcons/eye-slash-regular.svg';
@@ -17,16 +17,42 @@ class Login extends Component {
     e.preventDefault();
     this.setState(prevState => ({ passwordIsMasked: !prevState.passwordIsMasked}));
 };
-handleSubmit = e => {
+handleSubmit = async e => {
   e.preventDefault();
   console.log(`From the form before FETCH: ${this.state.username} / ${this.state.password}`);
-    const response = fetch('/api/auth/login', {
+    const response = await fetch('/api/auth/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({username: this.state.username, password: this.state.password})
+  }).then((response) => {
+    return response.json();
+  }).then((token) => {
+    console.log(token);
+    localStorage.setItem('userToken', token);
+    // this.props.history.push('/MainPage/ShortIntro');
+  }).then(() => {
+    this.props.history.push('/MainPage/ShortIntro');
+  }).catch((err) => {
+      console.log(err);
   });
+
+  // response.then(res => {
+  //   if(response.ok){
+  //     return res.json();
+  //   }
+  //   return res.json().then(err => {
+  //     Promise.reject(err);
+  //   })
+  // })
+  // .then(token => {
+  //   localStorage.setItem('userToken', token);
+  //   this.props.history.push('/MainPage/ShortIntro')
+  // })
+  // .catch((err) => {
+  //   console.log(err);
+  // });
   // console.log(`${this.state.loginUsername} + ' ' + ${this.state.loginPw}`);
 };
   render(){
@@ -46,4 +72,4 @@ handleSubmit = e => {
   }
 }
 
-export default Login;
+export default withRouter(Login);
