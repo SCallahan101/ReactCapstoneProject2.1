@@ -44,14 +44,25 @@ class SuggestionsList extends Component {
   state = {
     suggestions: [...suggestions]
   }
-  componentDidMount(){
-    setInterval(() => {
-      shuffle(suggestions);
-      this.setState({suggestions: [...suggestions]});
-    }, 10000);
-  }
+
+   listHandleClick() {
+     setTimeout(() => {
+         shuffle(suggestions);
+         this.setState({suggestions: [...suggestions]});
+       }, 200);
+  };
+  // componentDidMount(){
+  //   setInterval(() => {
+  //     shuffle(suggestions);
+  //     this.setState({suggestions: [...suggestions]});
+  //   }, 10000);
+  // }
   render(){
     return (
+      <section className='ideaSuggestionsBar'>
+      <div className='boxOfSuggestions'>
+        <button className='ideaBar' onClick={() => this.listHandleClick()} >👉Randomize Ideas👈</button>
+      </div>
       <ul className='listOfSuggestions'>
        {suggestions.map(idea => (
          <li className='singleSuggestion'>
@@ -59,6 +70,7 @@ class SuggestionsList extends Component {
          </li>
        ))}
      </ul>
+     </section>
    );
   }
 }

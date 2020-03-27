@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 const chapterSchema =  mongoose.Schema({
+  userId: String,
   chapterNum: Number,
   title: String,
   content: String,
@@ -9,6 +10,7 @@ const chapterSchema =  mongoose.Schema({
 chapterSchema.methods.serialize = function(){
   return{
     id: this._id,
+    userId: this.userId,
     chapterNum: this.chapterNum,
     title: this.title,
     content: this.content

@@ -28,8 +28,11 @@ handleSubmit = async e => {
     body: JSON.stringify({username: this.state.username, password: this.state.password})
   }).then((response) => {
     return response.json();
-  }).then((token) => {
-    console.log(token);
+  }).then((loggedInData) => {
+    const authorID = JSON.stringify(loggedInData.userID);
+    const token = JSON.stringify(loggedInData.authToken);
+    console.log('Post-log test:' + authorID + ' ' + token);
+    localStorage.setItem('author', authorID);
     localStorage.setItem('userToken', token);
     // this.props.history.push('/MainPage/ShortIntro');
   }).then(() => {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Route, Link, Switch} from 'react-router-dom';
+import {Route, Link, Switch, NavLink} from 'react-router-dom';
 // import hexIcon from '../hexagon.png';
 import './mainPage.css';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
@@ -43,13 +43,9 @@ class TheMain extends Component {
             <Route path='/MainPage/CreateChapter' component={createTheStory} />
             <Route path='/MainPage/WrapItUp' render={(props) => <TheEnd {...props} chapterlists={chapterlists} />} />
           </Switch>
+          <NavLink to='/' activeClassName='logoutLink'><button className='logout-btn logout-draw-border'>Logout!</button></NavLink>
         </section>
-        <section className='ideaSuggestionsBar'>
-          <div className='boxOfSuggestions'>
-            ??? List of Ideas ???
-          </div>
           <SuggestionsList />
-        </section>
       </div>
     );
   }

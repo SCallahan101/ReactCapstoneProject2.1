@@ -1,6 +1,7 @@
 'use strict';
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
+const uuid = require('uuid');
 
 // mongoose.Promise = global.Promise;
 
@@ -16,7 +17,8 @@ const StorytellerSchema = mongoose.Schema({
   },
   firstName: {type: String, default: ''},
   lastName: {type: String, default: ''},
-  email: {type: String, default: ''}
+  email: {type: String, default: ''},
+  userId: {type: String, default: uuid.v4()}
 });
 
 StorytellerSchema.methods.serialize = function() {
@@ -24,7 +26,8 @@ StorytellerSchema.methods.serialize = function() {
     username: this.username,
     firstName: this.firstName,
     lastName: this.lastName,
-    email: this.email
+    email: this.email,
+    userId: this.userId
   };
 };
 

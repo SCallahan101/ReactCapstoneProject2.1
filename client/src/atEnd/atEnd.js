@@ -24,7 +24,7 @@ class TheEnd extends Component{
   };
 
   async deleteChapter(chapterlist){
-    if(window.confirm(`Are you sure about delete this "${chapterlist.title}" chapter?`)) {
+    if(window.confirm(`Are you sure about delete this "${chapterlist.title} ${chapterlist.id}" chapter?`)) {
       fetch('/api/FinalizeTheStory/' + `${chapterlist.id}`, {
         method: 'DELETE',
       })
@@ -78,7 +78,7 @@ handleEditSubmit = async e =>{
           <TabList>
             <Tab>Your Story</Tab>
             <Tab>Comparison Stats</Tab>
-            <Tab>Exit</Tab>
+            <Tab>Next Action</Tab>
           </TabList>
           <TabPanel>
             <h2 className='endTitle'>
@@ -127,7 +127,20 @@ handleEditSubmit = async e =>{
               </div>
           </TabPanel>
           <TabPanel>
+            <div className='ending-container'>
             <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border'>Exit back to Front Page</button></NavLink>
+            <br />
+            <NavLink to='/MainPage/Choices'activeClassName='backStart'><button className='back-track-btn btn draw-border'>Back to Chapter Creation Page</button></NavLink>
+            <br />
+            <h3>- Links for some deep thoughts -</h3>
+            <a href='https://www.standoutbooks.com/3-golden-rules-writing-science-fiction-book/' className='link-btn btn draw-border'>3-Golden Rules</a>
+            <br />
+            <a href='https://hobbylark.com/writing/how-to-write-a-science-fiction-short-story' className='link-btn btn draw-border'>Sci-Fi information Oasis</a>
+            <br />
+            <a href='https://www.writersdigest.com/online-editor/write-science-fiction-novel-series-6-tips' className='link-btn btn draw-border'>6 TIPS</a>
+            <br />
+            <a href='https://www.wikihow.com/Write-Science-Fiction' className='link-btn btn draw-border'>Your Favorite WikiHow!</a>
+            </div>
           </TabPanel>
         </Tabs>
       </div>

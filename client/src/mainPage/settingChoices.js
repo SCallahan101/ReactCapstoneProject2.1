@@ -14,7 +14,14 @@ let arraySciFiPics = [
   {name:'sciFiPic7', src: 'https://cdna.artstation.com/p/assets/images/images/000/275/000/large/Sorcery_Concept05.jpg?1414573487'},
   {name:'sciFiPic8', src: 'https://cache.desktopnexus.com/thumbseg/1584/1584053-bigthumbnail.jpg'},
   {name:'sciFiPic9', src: 'https://wallpapercave.com/wp/wp2773676.jpg'},
-  {name:'sciFiPic10', src: 'https://wallup.net/wp-content/uploads/2018/10/04/675384-sci-fi-battle-fighting-war-art-artwork-warrior-futuristic.jpg'}
+  {name:'sciFiPic10', src: 'https://wallup.net/wp-content/uploads/2018/10/04/675384-sci-fi-battle-fighting-war-art-artwork-warrior-futuristic.jpg'},
+  {name:'sciFiPic11', src: 'https://i.pinimg.com/originals/eb/f4/cf/ebf4cf899f9b3a13f5e85dda13773345.jpg'},
+  {name:'sciFiPic12', src: 'https://i.pinimg.com/originals/5b/e5/ce/5be5ce754b095ce4aef65f650c75c982.jpg'},
+  {name:'sciFiPic13', src: 'https://wallpapercave.com/wp/wiO239E.jpg'},
+  {name:'sciFiPic14', src: 'https://wallpapercave.com/wp/8NBg7aT.jpg'},
+  {name:'sciFiPic15', src: 'http://getwallpapers.com/wallpaper/full/d/b/7/965932-mythical-background-1920x1080-for-mac.jpg'},
+  {name:'sciFiPic16', src: 'http://getwallpapers.com/wallpaper/full/d/c/f/966045-large-mythical-background-1920x1200-macbook.jpg'},
+  {name:'sciFiPic17', src: 'https://www.itl.cat/pngfile/big/3-38627_romantic-love-couple-wallpaper-hd-design-inspiration-boy.jpg'}
 ];
 class SettingChoices extends Component {
   constructor(props){

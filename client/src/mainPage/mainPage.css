@@ -59,7 +59,7 @@ ul > .chapter {
   width: 180px;
   border: solid black 5px;
   border-radius: 5px;
-  overflow: overlay;
+  /* overflow: overlay; */
 }
 .ideaSuggestionsBar > div {
   border-bottom: solid black 3px;
@@ -72,8 +72,9 @@ ul > .chapter {
 .ideaSuggestionsBar > ul {
   list-style-type: none;
   padding-left: 10px;
+  margin-top: 10px;
 }
-ul > .singleSuggestion {
+.listOfSuggestions > .singleSuggestion {
   border-bottom: solid black 2px;
   border-left: solid black 2px;
   border-bottom-left-radius: 5px;
@@ -81,6 +82,19 @@ ul > .singleSuggestion {
   padding-left: 10px;
   margin-top: 5px;
   padding-bottom: 5px;
+}
+.listOfSuggestions .singleSuggestion:nth-of-type(1n+16){
+  display: none;
+}
+.ideaBar{
+  background-color: lightgrey;
+  border: none;
+  border-radius: 3px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 .intro{
   text-align: center;
@@ -401,8 +415,14 @@ border-color: transparent transparent white transparent;
   border: solid black 3px;
   margin: 5px;
 }
+.ending-container{
+  background: ghostwhite;
+  display: inline-block;
+  padding: 20px;
+  border-radius: 5px;
+}
 .draw-border {
-  box-shadow: inset 0 0 0 4px white;
+  /* box-shadow: inset 0 0 0 4px white; */
   color: black;
   transition: color 0.25s 0.0833333333s;
   position: relative;
@@ -445,10 +465,11 @@ border-color: transparent transparent white transparent;
 .btn {
   background: none;
   border: none;
+  border-radius: 5px;
   cursor: pointer;
   line-height: 1.5;
   font: 700 1.2rem 'Roboto Slab', sans-serif;
-  padding: 1em 2em;
+  padding: 1em;
   letter-spacing: 0.05rem;
 }
 .btn:focus {
@@ -469,6 +490,15 @@ border-color: transparent transparent white transparent;
   width: auto;
   height: auto;
 } */
+.back-track-btn{
+  margin-top: 10px;
+}
+.link-btn{
+  padding: 10px 25px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  display: inline-block;
+}
 .outside-btn{
   position: absolute;
   bottom: 25px;
@@ -488,7 +518,12 @@ border-color: transparent transparent white transparent;
   padding: 0px;
 }
 .modal-btn{
+}
 
+.logout-btn{
+  position: absolute;
+  top: 0px;
+  right: 0px;
 }
 .chapterNumber{
   position: absolute;
@@ -511,13 +546,13 @@ border-color: transparent transparent white transparent;
 }
 .goPrevious{
   position: absolute;
-  top: 12px;
-  left: 12px;
-  width: 45px;
-  height: 28px;
-  background: white;
-  border: none;
-  border-radius: 10px;
+      /* top: 12px; */
+      bottom: 14px;
+      left: 27em;
+      width: 45px;
+      /* height: 28px; */
+      background: none;
+      border: none;
 }
 .goPrevious .back-tooltip{
   visibility: hidden;
@@ -558,15 +593,16 @@ color: white;
 }
 .finishUp{
   position: absolute;
-      top: 12px;
-      /* bottom: 12px; */
-      right: 12px;
-      width: 32px;
-      height: 37px;
+      /* top: 12px; */
+      bottom: 17px;
+      right: 25.8em;
+      /* margin: 0px; */
+      width: 56px;
+      /* height: 107px; */
       padding: 0px;
-      border-radius: 5px;
+      /* border-radius: 5px; */
       border: none;
-      background: white;
+      background: none;
 }
 .finishUp .finalize-tooltip{
   visibility: hidden;

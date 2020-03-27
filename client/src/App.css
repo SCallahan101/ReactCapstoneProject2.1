@@ -22,7 +22,8 @@
       25%  {background: #AF37A7;}
       50%  {background: steelblue;}
       75%  {background: forestgreen;}
-      100% {background: orange;}
+      95% {background: orange;}
+      100% {background: maroon;}
     }
 .Particles {
 height: 100vh;

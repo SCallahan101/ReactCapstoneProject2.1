@@ -25,12 +25,16 @@ class ListToAdd extends Component {
   };
   handleSubmit = async e =>{
     e.preventDefault();
+    const localAuthor = localStorage.getItem('author');
+    const idAuthor = localAuthor.replace(/['"]+/g, '');
+    console.log('Phase: ' + idAuthor);
+    // console.log(idAuthor.replace(/['"]+/g, ''));
     const response = await fetch('/api/ChaptersForStory/all', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({chapterNum: this.state.chapterNum, title: this.state.title, content: this.state.content}),
+      body: JSON.stringify({userId: idAuthor, chapterNum: this.state.chapterNum, title: this.state.title, content: this.state.content}),
     });
     const body = await response.text();
     this.setState({responseToPost: body});

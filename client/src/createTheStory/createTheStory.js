@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import ListToAdd from './addChapterForm';
-import BackButton from '../SvgIcons/backspace-solid.svg';
-import Finalize from '../SvgIcons/book-solid.svg';
+import BackButton from '../SvgIcons/angle-left-solid.svg';
+import Finalize from '../SvgIcons/angle-double-right-solid.svg';
 
 
 class createTheStory extends Component {

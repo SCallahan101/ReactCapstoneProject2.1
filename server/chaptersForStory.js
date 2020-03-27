@@ -7,14 +7,15 @@ db.on('error', console.error.bind(console, 'MongoDB connection issue error:'));
 const Schema = mongoose.Schema;
 
 const chapterSchema = new Schema({
+  userId: String,
   chapterNum: Number,
   title: String,
   content: String,
 });
   let ChaptersForStory = mongoose.model('ChaptersForStory', chapterSchema);
 
-const addChapter = (chapterNum, title, content) => {
-  let newChapter = new ChaptersForStory({chapterNum, title, content});
+const addChapter = (userId, chapterNum, title, content) => {
+  let newChapter = new ChaptersForStory({userId, chapterNum, title, content});
   newChapter.save();
 }
 
