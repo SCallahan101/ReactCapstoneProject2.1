@@ -71,8 +71,8 @@ app.post('/api/storytellers/', (req, res) => {
 
 //
 
-app.get("/api/ChaptersForStory/all", (req, res) => {
-  ChapterList.find()
+app.get("/api/ChaptersForStory/:userId", (req, res) => {
+  ChapterList.find({userId: req.params.userId})
   .then((chapterlists, err) => {
     console.log(err);
     console.log(chapterlists);

@@ -19,12 +19,20 @@ class TheMain extends Component {
     };
   }
   componentDidMount() {
+    const preDataId = localStorage.getItem('author');
+    const authorId = preDataId.replace(/['"]+/g, '');
+    console.log("At GET request for user's list of chapters: " + authorId);
     setInterval(() => {
-      fetch('/api/ChaptersForStory/all')
+      fetch('/api/ChaptersForStory/' + authorId)
       .then(response => response.json())
       .then(data => this.setState({chapterlists: data.chapterlists}));
     }, 4000);
     //This somehow linked with img src...werid me out.//
+  }
+
+  loggedOut(){
+    localStorage.clear();
+    console.log('Clear out the Storage');
   }
   render(){
     const {chapterlists} = this.state;
@@ -43,7 +51,7 @@ class TheMain extends Component {
             <Route path='/MainPage/CreateChapter' component={createTheStory} />
             <Route path='/MainPage/WrapItUp' render={(props) => <TheEnd {...props} chapterlists={chapterlists} />} />
           </Switch>
-          <NavLink to='/' activeClassName='logoutLink'><button className='logout-btn logout-draw-border'>Logout!</button></NavLink>
+          <NavLink to='/' activeClassName='logoutLink'><button className='logout-btn draw-border' onClick={() => this.loggedOut()}>Logout!</button></NavLink>
         </section>
           <SuggestionsList />
       </div>

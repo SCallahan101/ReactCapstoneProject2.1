@@ -61,7 +61,7 @@ class SuggestionsList extends Component {
     return (
       <section className='ideaSuggestionsBar'>
       <div className='boxOfSuggestions'>
-        <button className='ideaBar' onClick={() => this.listHandleClick()} >👉Randomize Ideas👈</button>
+        <button className='ideaBar-btn draw-border' onClick={() => this.listHandleClick()} >👉Randomize Ideas👈</button>
       </div>
       <ul className='listOfSuggestions'>
        {suggestions.map(idea => (
