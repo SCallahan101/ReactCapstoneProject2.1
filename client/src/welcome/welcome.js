@@ -5,7 +5,7 @@ import './welcome.css';
 export default function Welcome(props) {
   return(
     <div className='welcomeBox'>
-      <h1>Welcome to Sci-Fi Writing Draftboard!</h1>
+      <h1 className='welcomeTitle'>Welcome to Sci-Fi Writing Draftboard!</h1>
       <Login />
     </div>
   )

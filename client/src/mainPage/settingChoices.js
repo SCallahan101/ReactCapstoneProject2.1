@@ -45,13 +45,13 @@ class SettingChoices extends Component {
 
     }
     return (
-      <div>
-        <img className="hexagon top base" src={arraySciFiPics[0].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[0].src)}  />
-        <img className="hexagon top" src={arraySciFiPics[1].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[1].src)}/>
-        <img className="hexagon top" src={arraySciFiPics[2].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[2].src)}/>
-        <img className="hexagon bottomLeft" src={arraySciFiPics[3].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[3].src)}/>
+      <div className='hexsContainer'>
+        <img className="hexagon alt-1 top base" src={arraySciFiPics[0].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[0].src)}  />
+        <img className="hexagon alt-2 top" src={arraySciFiPics[1].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[1].src)}/>
+        <img className="hexagon alt-3 top" src={arraySciFiPics[2].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[2].src)}/>
+        <img className="hexagon alt-4 bottomLeft" src={arraySciFiPics[3].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[3].src)}/>
         <h2 className='settingMessage'>Choose your setting for this chapter!</h2>
-        <img className="hexagon bottomRight" src={arraySciFiPics[4].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[4].src)}/>
+        <img className="hexagon alt-5 bottomRight" src={arraySciFiPics[4].src} alt='hexagon icon' onClick={() => this.handleClick(arraySciFiPics[4].src)}/>
       </div>
     );
   }

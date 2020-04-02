@@ -34,7 +34,11 @@ margin-left: 5px;
 background: none;
 border: none;
 }
+.registrationBoard{
+  overflow: overlay;
+}
 .registrationForm{
+  position: relative;
   margin: 10px 0px;
   padding: 5px;
   border: 2px solid black;
@@ -42,15 +46,22 @@ border: none;
   display: inline-block;
 }
 .formErrors{
-  position: absolute;
+  /* position: absolute;
   top: 58%;
-right: 0;
-border: 2px solid black;
-background: whitesmoke;
+  right: 0; */
+  /* border: 2px solid black;
+  background: whitesmoke; */
 }
-/* .errorBoard{
-  position: absolute;
-} */
+.errorBoard{
+  border: 2px solid black;
+  border-radius: 5px;
+  background: whitesmoke;
+  padding: 5px 37px;
+  width: 136px;
+  font-size: 14px;
+  margin: 5px;
+  display: inline-block;
+}
 .reg-box{
   padding: 5px;
   margin: 5px;

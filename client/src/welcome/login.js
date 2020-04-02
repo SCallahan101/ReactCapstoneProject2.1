@@ -67,7 +67,7 @@ handleSubmit = async e => {
           <input className='loginPw' type={passwordIsMasked ? 'password' : 'text'} placeholder='Enter your password' value={this.state.password} onChange={e => this.setState({password: e.target.value})}/>
           <button className='togglePeek'onClick={this.togglePeek} ><img src={OpenEye} /></button>
           <br/>
-          <button type='submit' className='login-btn login-draw-border'>Enter</button>
+          <button type='submit' className='login-btn login-draw-border'>Login</button>
         </form>
         <Registration />
       </div>

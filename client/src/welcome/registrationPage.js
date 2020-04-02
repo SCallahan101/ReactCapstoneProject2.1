@@ -89,25 +89,22 @@ handleSubmit = async e =>{
   render(){
     return(
       <div className='registrationBoard'>
-        <button className='registration-btn reg-draw-border' onClick={(e) => this.togglePanel(e)}>New Storyteller</button>
+        <button className='registration-btn reg-draw-border' onClick={(e) => this.togglePanel(e)}>Create a Storyteller Account</button>
         <br />
         {this.state.open ? (
           <form className='registrationForm' onSubmit={this.handleSubmit}>
-            <input className='username reg-box' type='text' placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
-            <br />
+            <FormErrors formErrors={this.state.formErrors} />
             <div className={`${this.errorClass(this.state.formErrors.password)}`}></div>
+            <input className='username reg-box' type='text' placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
             <input className='password reg-box' type='text' placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
             <br />
             <input className='firstName reg-box' type='text' placeholder='Your first name?' name='firstName' value={this.state.firstName} onChange={e => this.setState({firstName: e.target.value})}/>
-            <br />
             <input className='lastName reg-box' type='text' placeholder='Your last name?' name='lastName' value={this.state.lastName} onChange={e => this.setState({lastName: e.target.value})}/>
             <br />
             <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`} >
             <input className='email reg-box' type='email' placeholder='Your Email?' name='email' value={this.state.email} onChange={this.handleChange} />
             </div>
-            <br />
             <button type='submit' className='register-btn reg-draw-border' disabled={!this.state.formValid}>Register</button>
-            <FormErrors formErrors={this.state.formErrors} />
           </form>
         ): null}
       </div>
