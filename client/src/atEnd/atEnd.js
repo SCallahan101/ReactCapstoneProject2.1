@@ -5,6 +5,7 @@ import EditModal from './editModal';
 import DeleteSvg from '../SvgIcons/times-circle-solid.svg';
 import EditSvg from '../SvgIcons/keyboard-solid.svg';
 import WindowCloseSvg from '../SvgIcons/window-close-regular.svg';
+import "./atEnd.css";
 
 class TheEnd extends Component{
   state = {
@@ -73,11 +74,11 @@ handleEditSubmit = async e =>{
 
   render(){
     return(
-      <div>
+      <div className='endContainer'>
         <Tabs>
           <TabList>
             <Tab>Your Story</Tab>
-            <Tab>Comparison Stats</Tab>
+            <Tab>Facts</Tab>
             <Tab>Next Action</Tab>
           </TabList>
           <TabPanel>
@@ -115,31 +116,57 @@ handleEditSubmit = async e =>{
             </EditModal>
           </TabPanel>
           <TabPanel>
-            <p>
-               Overall Stats with other users
-            </p>
-              <div className='statsContainer'>
-                <div className='statsBars'></div>
-                <div className='statsBars'></div>
-                <div className='statsBars'></div>
-                <div className='statsBars'></div>
-                <div className='statsBars'></div>
+            <div className='factsContainer'>
+              <div className='factsList'>
+                  <button className="factsDropBtn">Color Psychology</button>
+                  <div className='factsContent'>
+                    <p>Different colors evoke different emotions.</p>
+                    <p>Colors can even play tricks on your mind.</p>
+                    <p>Colors can trigger deep childhood memories.</p>
+                    <p>Color affects taste.</p>
+                    <p>Colors can affect energy and blood pressure.</p>
+                  </div>
               </div>
+              <div className='factsList'>
+                  <button className="factsDropBtn">Subconscious Mind</button>
+                  <div className='factsContent'>
+                    <p>The complex of mental activities within an individual that proceed without his awareness.</p>
+                    <p>It picks up information and passing to the conscious through images, feelings, sensations, dream and reflexes. </p>
+                    <p>The subconscious mind plays a complex, pervasive role in how you perceive the world.</p>
+                  </div>
+              </div>
+              <div className='factsList'>
+                  <button className="factsDropBtn">Words Trigger</button>
+                  <div className='factsContent'>
+                    <p>A trigger word is any word that inspires someone to act.</p>
+                    <p>we, as people, are attracted to certain words and phrases.</p>
+                    <p>Trigger words are those that cause ourselves to feel strong emotions because of previous experiences.</p>
+                  </div>
+              </div>
+              <div className='factsList'>
+                  <button className="factsDropBtn">Visual Cues</button>
+                  <div className='factsContent'>
+                    <p>Captivating images helps the person to mitigate the boredom and simulate the person.</p>
+                    <p>Half of the human brain is directly or indirectly devoted to processing visual information.</p>
+                    <p>Humans have a remarkable ability to remember pictures.</p>
+                  </div>
+              </div>
+            </div>
           </TabPanel>
           <TabPanel>
             <div className='ending-container'>
-            <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border'>Exit back to Front Page</button></NavLink>
+            <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border next-action'>Exit back to Front Page</button></NavLink>
             <br />
-            <NavLink to='/MainPage/Choices'activeClassName='backStart'><button className='back-track-btn btn draw-border'>Back to Chapter Creation Page</button></NavLink>
+            <NavLink to='/MainPage/Choices'activeClassName='backStart'><button className='back-track-btn btn draw-border next-action'>Back to Chapter Creation Page</button></NavLink>
             <br />
             <h3>- Links for some deep thoughts -</h3>
-            <a href='https://www.standoutbooks.com/3-golden-rules-writing-science-fiction-book/' className='link-btn btn draw-border'>3-Golden Rules</a>
+            <a href='https://www.standoutbooks.com/3-golden-rules-writing-science-fiction-book/' className='link-btn btn draw-border next-action'>3-Golden Rules</a>
             <br />
-            <a href='https://hobbylark.com/writing/how-to-write-a-science-fiction-short-story' className='link-btn btn draw-border'>Sci-Fi information Oasis</a>
+            <a href='https://hobbylark.com/writing/how-to-write-a-science-fiction-short-story' className='link-btn btn draw-border next-action'>Sci-Fi information Oasis</a>
             <br />
-            <a href='https://www.writersdigest.com/online-editor/write-science-fiction-novel-series-6-tips' className='link-btn btn draw-border'>6 TIPS</a>
+            <a href='https://www.writersdigest.com/online-editor/write-science-fiction-novel-series-6-tips' className='link-btn btn draw-border next-action'>6 TIPS</a>
             <br />
-            <a href='https://www.wikihow.com/Write-Science-Fiction' className='link-btn btn draw-border'>Your Favorite WikiHow!</a>
+            <a href='https://www.wikihow.com/Write-Science-Fiction' className='link-btn btn draw-border next-action'>Your Favorite WikiHow!</a>
             </div>
           </TabPanel>
         </Tabs>

@@ -51,7 +51,7 @@ class ListToAdd extends Component {
   };
   render(){
     return (
-      <div>
+      <div className='chapterModalContainer'>
       <button className='modal outside-btn' onClick={e => { this.showModal(e); }}>Create new chapter</button>
       <ModalBox onClose={this.showModal} show={this.state.show}>
       <form className='fillingStory' onSubmit={this.handleSubmit}>

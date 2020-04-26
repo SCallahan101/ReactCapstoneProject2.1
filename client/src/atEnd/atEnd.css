@@ -1,0 +1,65 @@
+.factsContainer{
+  display: flex;
+justify-content: center;
+border: solid;
+width: 100%;
+}
+
+
+.factsList{
+  /* list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+  position: relative; */
+}
+
+.factsList > li{
+  display: inline;
+}
+.factsDropBtn{
+  background-color: #4CAF50;
+color: white;
+padding: 16px;
+font-size: 16px;
+border: none;
+cursor: pointer;
+}
+
+.factsContent{
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+  /* list-style-type: none; */
+  word-wrap: break-word;
+  border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+    width: 88%;
+    position: absolute;
+    /* top: 14%; */
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+}
+.factsContent p{
+  margin: 0;
+  padding: 20px 5px;
+}
+.factsContent p:hover {
+  /* margin: 0;
+  padding: 20px 0px; */
+  background-color: #f1f1f1;
+  border-bottom: solid black;
+  border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px;
+}
+.factsList:hover .factsContent {
+  display: block;
+}
+.factsList:hover .factsDropBtn {
+  background-color: #3e8e41;
+}

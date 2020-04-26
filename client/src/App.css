@@ -30,14 +30,21 @@ height: 100vh;
 }
 .TopBoard {
   position: absolute;
-    top: -40px;
+  left: 0;
+  right: 0;
+    /* top: -5%;
     left: 50%;
-    margin-left: -420px;
-    padding: 5px;
-    border: solid woo 5px;
-    font-size: 72px;
+      margin-left: -32%; */
+      padding: 5px;
+      width: 98%;
+      height: 10%;
+      max-height: 10%;
+      margin: 0 auto;
+      text-align: center;
+      /* border: solid woo 5px; */
+      font-size: 9vh;
     color: white;
-    font-weight: bolder;
+    /* font-weight: bolder; */
     text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
     font-family: "Drafting";
     font-weight: normal;
@@ -170,27 +177,77 @@ button {
 input{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
-@media only screen and (max-width: 992px){
+
+@media only screen and (max-width: 600px) {
+  /* .introContainer{
+    width: 99%;
+    top: 4em;
+    font-size: 12px;
+    position: absolute;
+  }
+  .welcomeBox{
+    width: 70%;
+    margin: .5em auto;
+  } */
+  .login-btn{
+    font-size: 1rem;
+  }
+  .registration-btn{
+    font-size: 1rem;
+  }
+}
+/* @media only screen and (max-width: 992px){
+  .introContainer{
+    width: 99%;
+    top: 4em;
+    font-size: 12px;
+    position: absolute;
+  }
+  .welcomeBox{
+    width: 70%;
+    margin: .5em auto;
+  }
+} */
+@media only screen and (max-width: 1400px){
+  .introContainer{
+    width: 99%;
+    /* top: 4em; */
+    font-size: 12px;
+    position: absolute;
+  }
+  .welcomeBox{
+    /* width: 70%; */
+    /* margin: .5em auto; */
+  }
+}
+/* @media only screen and (max-width: 992px){
   .welcomeBox{
     left: 50%;
     margin-left: -307.5px;
   }
   .TopBoard{
     font-size: 2.8em;
-    top: 0;
+    top: -6px;
     left: 50%;
     margin-left: -263px;
+  }
+}
+@media only screen and (max-width: 822px){
+  .TopBoard{
+    font-size: 2.1em;
+  margin-left: -200px;
+  top: 12px;
   }
 }
 @media only screen and (max-width: 688px){
   body{
     width: 100%;
   }
-  .TopBoard{
-    font-size: 2.5em;
-    top: 0;
+  .TopBoard{ */
+    /* font-size: 2em; */
+    /* top: -14px;
     left: 50%;
-    margin-left: -235px;
+    margin-left: -195.5px;
   }
   .welcomeBox{
     width: 30em;
@@ -204,4 +261,4 @@ input{
     width: 1.5em;
     margin-top: 5px;
   }
-}
+} */

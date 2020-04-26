@@ -8,21 +8,23 @@ import Finalize from '../SvgIcons/angle-double-right-solid.svg';
 class createTheStory extends Component {
   render(){
     return (
-      <div>
-        <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' >
-          <button className='goPrevious modal-btn'>
-            <span className='back-tooltip'>Previous</span>
-            <img src={BackButton} />
-          </button>
-        </NavLink>
-        <NavLink to={'/MainPage/WrapItUp'} activeClassName='finalizeStory' >
-          <button className='finishUp modal-btn'>
-          <span className='finalize-tooltip'>Finalize Your Story</span>
-            <img src={Finalize} />
-          </button>
-        </NavLink>
+      <div className="chapCreationContainer">
         <img className='BackgroundImageSetting' src={this.props.location.state.referrer} alt='various background image'/>
-        <ListToAdd />
+        <div className='pathwayContainer'>
+          <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' >
+            <button className='goPrevious modal-btn'>
+              <span className='back-tooltip'>Previous</span>
+              <img src={BackButton} />
+            </button>
+          </NavLink>
+          <ListToAdd />
+          <NavLink to={'/MainPage/WrapItUp'} activeClassName='finalizeStory' >
+            <button className='finishUp modal-btn '>
+            <span className='finalize-tooltip'>Finalize Your Story</span>
+              <img src={Finalize} />
+            </button>
+          </NavLink>
+        </div>
       </div>
     );
   }

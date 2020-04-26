@@ -59,7 +59,7 @@ class SuggestionsList extends Component {
   // }
   render(){
     return (
-      <section className='ideaSuggestionsBar'>
+      <div>
       <div className='boxOfSuggestions'>
         <button className='ideaBar-btn draw-border' onClick={() => this.listHandleClick()} >👉Randomize Ideas👈</button>
       </div>
@@ -70,7 +70,7 @@ class SuggestionsList extends Component {
          </li>
        ))}
      </ul>
-     </section>
+     </div>
    );
   }
 }

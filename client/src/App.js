@@ -16,7 +16,7 @@ class App extends Component {
   return (
     <div className='App'>
       <header>
-        <h1 className='TopBoard'>Your Sci-Fi StoryBoard</h1>
+        <h1 className='TopBoard'>DraftBoard</h1>
       </header>
       <main className='mainFrameApp'>
         <Switch>
