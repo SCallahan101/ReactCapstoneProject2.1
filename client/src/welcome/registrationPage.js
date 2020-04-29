@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
 import {FormErrors} from './formErrors';
 // import MainPage from '../mainPage/mainPage';
+import { v4 as uuidv4 } from 'uuid';
+
 
 class Registration extends Component {
   constructor(){
@@ -13,6 +15,7 @@ class Registration extends Component {
       firstName: "",
       lastName: "",
       email: "",
+      userId: "",
       formErrors:{username: '', password: '', email: ''},
       usernameValid: false,
       passwordValid: false,
@@ -70,12 +73,13 @@ errorClass(error){
 }
 handleSubmit = async e =>{
   e.preventDefault();
+  const NewUserID = uuidv4();
   const response = await fetch('/api/storytellers/', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({username: this.state.username, password: this.state.password, firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email}),
+    body: JSON.stringify({username: this.state.username, password: this.state.password, firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email, userId: NewUserID}),
   });
   this.setState({
     open: false,
@@ -83,7 +87,8 @@ handleSubmit = async e =>{
     password: '',
     firstName: '',
     lastName: '',
-    email: ''
+    email: '',
+    userId: ''
   });
 };
   render(){
@@ -103,6 +108,7 @@ handleSubmit = async e =>{
             <br />
             <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`} >
             <input className='email reg-box' type='email' placeholder='Your Email?' name='email' value={this.state.email} onChange={this.handleChange} />
+
             </div>
             <button type='submit' className='register-btn reg-draw-border' disabled={!this.state.formValid}>Register</button>
           </form>

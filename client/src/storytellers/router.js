@@ -23,7 +23,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  const stringFields = ['username', 'password', 'firstName', 'lastName', 'email'];
+  const stringFields = ['username', 'password', 'firstName', 'lastName', 'email', 'userId'];
   const nonStringField = stringFields.find(
     field => field in req.body && typeof req.body[field] !== 'string'
   );
@@ -93,7 +93,7 @@ router.post('/', jsonParser, (req, res) => {
     });
   }
 
-  let {username, password, firstName = '', lastName = '', email = ''} = req.body;
+  let {username, password, firstName = '', lastName = '', email = '', userId = ''} = req.body;
   // Username and password come in pre-trimmed, otherwise we throw an error
   // before this
   firstName = firstName.trim();
@@ -120,7 +120,8 @@ router.post('/', jsonParser, (req, res) => {
         password: hash,
         firstName,
         lastName,
-        email
+        email,
+        userId
       });
     })
     .then(member => {
