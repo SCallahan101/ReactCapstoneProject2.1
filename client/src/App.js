@@ -5,7 +5,7 @@ import Welcome from './welcome/welcome';
 import Registration from './welcome/registrationPage';
 import Particles from 'react-particles-js';
 import './App.css';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 
 
 // <Route path='/FinalizeStoryAndStats' component={} />

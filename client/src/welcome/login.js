@@ -64,8 +64,10 @@ handleSubmit = async e => {
       <div>
         <form onSubmit={this.handleSubmit}>
           <input className='loginUsername' type='text' placeholder='Enter your username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
+          <div className='passwordContainer'>
           <input className='loginPw' type={passwordIsMasked ? 'password' : 'text'} placeholder='Enter your password' value={this.state.password} onChange={e => this.setState({password: e.target.value})}/>
-          <button className='togglePeek'onClick={this.togglePeek} ><img src={OpenEye} /></button>
+          <span className='togglePeek'onClick={this.togglePeek} ><img src={OpenEye} /></span>
+          </div>
           <br/>
           <button type='submit' className='login-btn login-draw-border'>Login</button>
         </form>

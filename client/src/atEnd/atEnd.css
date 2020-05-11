@@ -1,21 +1,23 @@
-.factsContainer{
+/* .factsContainer{
   display: flex;
 justify-content: center;
 border: solid;
 width: 100%;
 }
+.factsContainer div{
+  width: 25%;
+} */
 
-
-.factsList{
-  /* list-style-type: none;
+/* .factsList{
+  list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
   background-color: #333;
-  position: relative; */
-}
+  position: relative;
+} */
 
-.factsList > li{
+/* .factsList > p{
   display: inline;
 }
 .factsDropBtn{
@@ -25,10 +27,10 @@ padding: 16px;
 font-size: 16px;
 border: none;
 cursor: pointer;
-}
+} */
 
 .factsContent{
-  display: none;
+  /* display: none; */
   position: absolute;
   background-color: #f9f9f9;
   min-width: 160px;
@@ -36,8 +38,9 @@ cursor: pointer;
   z-index: 1;
   /* list-style-type: none; */
   word-wrap: break-word;
-  border-bottom-left-radius: 5px;
-border-bottom-right-radius: 5px;
+  /* border-bottom-left-radius: 5px;
+border-bottom-right-radius: 5px; */
+  border-radius: 5px;
     width: 88%;
     position: absolute;
     /* top: 14%; */
@@ -57,9 +60,12 @@ border-bottom-right-radius: 5px;
   border-bottom-left-radius: 5px;
 border-bottom-right-radius: 5px;
 }
-.factsList:hover .factsContent {
+.editWrapper{
+  display: inline-block;
+}
+/* .factsList:hover .factsContent {
   display: block;
 }
 .factsList:hover .factsDropBtn {
   background-color: #3e8e41;
-}
+} */

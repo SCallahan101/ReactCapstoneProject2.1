@@ -67,7 +67,7 @@ class TheMain extends Component {
     const {chapterlists} = this.state;
     return (
       <div className='MainDashboard'>
-        <NavLink to='/' activeClassName='logoutLink'><button className='logout-btn draw-border' onClick={() => this.loggedOut()}>Logout!</button></NavLink>
+        <NavLink to='/' activeClassName='logoutLink'><button className='logout-btn draw-border' onClick={() => this.loggedOut()}>Quick Logout</button></NavLink>
         <div className="dropdown-bar mobile-progressBar" ref={this.container}>
           <button className="dropbtn mobile-border" onClick={this.handleProgressBtn}>Storyline</button>
         {this.state.mobileProgress && (

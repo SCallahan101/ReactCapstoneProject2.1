@@ -2,6 +2,7 @@
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import WindowCloseSvg from '../SvgIcons/window-close-regular.svg';
+import swal from 'sweetalert';
 
 import ModalBox from './modal';
 // import TheList from './totalProgress';
@@ -35,10 +36,24 @@ class ListToAdd extends Component {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({userId: idAuthor, chapterNum: this.state.chapterNum, title: this.state.title, content: this.state.content}),
+    })
+    .then(data => {
+      // console.log('success: ', data);
+      // alert('Successful Registration');
+      swal("Confirmed!", "Your new additional chapter has been added to your Storyline!", "success");
+      this.setState({
+        chapterNum: '',
+        title: '',
+        show: false
+      });
+    })
+    .catch((error) => {
+      console.error("Error: ", error);
+      swal("ERROR!", "Something amissing or wrong input: " + error, "error");
     });
-    const body = await response.text();
-    this.setState({responseToPost: body});
-    console.log(this.state.responseToPost);
+    // const body = await response.text();
+    // this.setState({responseToPost: body});
+    // console.log(this.state.responseToPost);
   // on bottom of html list <p>{this.state.responseToPost}</p>
   };
   state = {
@@ -59,7 +74,7 @@ class ListToAdd extends Component {
         <br />
         <input className='titleInput' type='text' placeholder='Type your title' value={this.state.title} onChange={e => this.setState({title: e.target.value})} name='title' />
         <br />
-        <textarea className='storyBox' value={this.setState.content} onChange={e => this.setState({content: e.target.value})} name='content'>Go crazy!</textarea>
+        <textarea className='storyBox' placeholder='Type your story down here!' value={this.setState.content} onChange={e => this.setState({content: e.target.value})} name='content'></textarea>
         <button className='chapterSubmit' type='submit'>Add Chapter </button>
         <button className='modal inside-btn' onClick={e => { this.showModal(e); }}><img src={WindowCloseSvg} /></button>
         <span> </span>

@@ -5,6 +5,7 @@ import EditModal from './editModal';
 import DeleteSvg from '../SvgIcons/times-circle-solid.svg';
 import EditSvg from '../SvgIcons/keyboard-solid.svg';
 import WindowCloseSvg from '../SvgIcons/window-close-regular.svg';
+import swal from 'sweetalert';
 import "./atEnd.css";
 
 class TheEnd extends Component{
@@ -24,8 +25,9 @@ class TheEnd extends Component{
     });
   };
 
+// swal("Double Checking", "Are you sure about delete this "+ `${chapterlist.title} ${chapterlist.id}`+ " chapter?", "info")
   async deleteChapter(chapterlist){
-    if(window.confirm(`Are you sure about delete this "${chapterlist.title} ${chapterlist.id}" chapter?`)) {
+    if(window.confirm(`Are you sure about delete this "${chapterlist.title}" chapter?`)) {
       fetch('/api/FinalizeTheStory/' + `${chapterlist.id}`, {
         method: 'DELETE',
       })
@@ -65,8 +67,12 @@ handleEditSubmit = async e =>{
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({id: this.state.activeId, chapterNum: this.state.chapterNum, title: this.state.title, content: this.state.content}),
+      body: JSON.stringify({id: this.state.activeId, chapterNum: this.state.activeChapterNum, title: this.state.activeTitle, content: this.state.activeContent}),
     })
+    .then(this.setState({
+      show: false
+    })
+  )
     .then(res => res.text())
     .then(res => console.log(res));
   }
@@ -78,7 +84,10 @@ handleEditSubmit = async e =>{
         <Tabs>
           <TabList>
             <Tab>Your Story</Tab>
-            <Tab>Facts</Tab>
+            <Tab>Facts: Color Psychology</Tab>
+            <Tab>Facts: Subconscious Mind</Tab>
+            <Tab>Facts: Words Trigger</Tab>
+            <Tab>Facts: Visual Cues</Tab>
             <Tab>Next Action</Tab>
           </TabList>
           <TabPanel>
@@ -103,61 +112,58 @@ handleEditSubmit = async e =>{
             <form className='editStory' onSubmit={this.handleEditSubmit}>
               <h3 className='draftTitle'>Chapter Draft</h3>
               <div hidden >{this.state.activeId}</div>
+              <div className='editWrapper'>
               <span>Number: </span>
-              <input className='editChapterNumber' type='text' placeholder={this.state.activeChapterNum} value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
+              <input className='editChapterNumber' type='text' value={this.state.activeChapterNum} onChange={e => this.setState({activeChapterNum: e.target.value})} name='chapter' />
+              </div>
+              <div className='editWrapper'>
               <span>Title: </span>
-              <input className='editTitleInput' type='text' placeholder={this.state.activeTitle} value={this.state.title} onChange={e => this.setState({title: e.target.value})} name='title' />
+              <input className='editTitleInput' type='text' value={this.state.activeTitle} onChange={e => this.setState({activeTitle: e.target.value})} name='title' />
+              </div>
               <br />
               <p className='draftContent'>Content</p>
-              <textarea className='editStoryBox' placeholder={this.state.activeContent} value={this.state.content} onChange={e => this.setState({content: e.target.value})} name='content'>{this.state.activeTitle}</textarea>
+              <textarea className='editStoryBox' value={this.state.activeContent} onChange={e => this.setState({activeContent: e.target.value})} name='content'></textarea>
+              <br />
               <button className='editChapterSubmit' type='submit'>Edit it</button>
               <button className='editModalClose-btn' onClick={e => { this.openEditModal(e); }}><img src={WindowCloseSvg}  /></button>
             </form>
             </EditModal>
           </TabPanel>
           <TabPanel>
-            <div className='factsContainer'>
-              <div className='factsList'>
-                  <button className="factsDropBtn">Color Psychology</button>
-                  <div className='factsContent'>
-                    <p>Different colors evoke different emotions.</p>
-                    <p>Colors can even play tricks on your mind.</p>
-                    <p>Colors can trigger deep childhood memories.</p>
-                    <p>Color affects taste.</p>
-                    <p>Colors can affect energy and blood pressure.</p>
-                  </div>
-              </div>
-              <div className='factsList'>
-                  <button className="factsDropBtn">Subconscious Mind</button>
-                  <div className='factsContent'>
-                    <p>The complex of mental activities within an individual that proceed without his awareness.</p>
-                    <p>It picks up information and passing to the conscious through images, feelings, sensations, dream and reflexes. </p>
-                    <p>The subconscious mind plays a complex, pervasive role in how you perceive the world.</p>
-                  </div>
-              </div>
-              <div className='factsList'>
-                  <button className="factsDropBtn">Words Trigger</button>
-                  <div className='factsContent'>
-                    <p>A trigger word is any word that inspires someone to act.</p>
-                    <p>we, as people, are attracted to certain words and phrases.</p>
-                    <p>Trigger words are those that cause ourselves to feel strong emotions because of previous experiences.</p>
-                  </div>
-              </div>
-              <div className='factsList'>
-                  <button className="factsDropBtn">Visual Cues</button>
-                  <div className='factsContent'>
-                    <p>Captivating images helps the person to mitigate the boredom and simulate the person.</p>
-                    <p>Half of the human brain is directly or indirectly devoted to processing visual information.</p>
-                    <p>Humans have a remarkable ability to remember pictures.</p>
-                  </div>
-              </div>
+            <div className='factsContent'>
+              <p>Different colors evoke different emotions.</p>
+              <p>Colors can even play tricks on your mind.</p>
+              <p>Colors can trigger deep childhood memories.</p>
+              <p>Color affects taste.</p>
+              <p>Colors can affect energy and blood pressure.</p>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className='factsContent'>
+              <p>The complex of mental activities within an individual that proceed without his awareness.</p>
+              <p>It picks up information and passing to the conscious through images, feelings, sensations, dream and reflexes. </p>
+              <p>The subconscious mind plays a complex, pervasive role in how you perceive the world.</p>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className='factsContent'>
+              <p>A trigger word is any word that inspires someone to act.</p>
+              <p>we, as people, are attracted to certain words and phrases.</p>
+              <p>Trigger words are those that cause ourselves to feel strong emotions because of previous experiences.</p>
+            </div>
+          </TabPanel>
+          <TabPanel>
+            <div className='factsContent'>
+              <p>Captivating images helps the person to mitigate the boredom and simulate the person.</p>
+              <p>Half of the human brain is directly or indirectly devoted to processing visual information.</p>
+              <p>Humans have a remarkable ability to remember pictures.</p>
             </div>
           </TabPanel>
           <TabPanel>
             <div className='ending-container'>
-            <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border next-action'>Exit back to Front Page</button></NavLink>
-            <br />
             <NavLink to='/MainPage/Choices'activeClassName='backStart'><button className='back-track-btn btn draw-border next-action'>Back to Chapter Creation Page</button></NavLink>
+            <br />
+            <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border next-action'>Logout</button></NavLink>
             <br />
             <h3>- Links for some deep thoughts -</h3>
             <a href='https://www.standoutbooks.com/3-golden-rules-writing-science-fiction-book/' className='link-btn btn draw-border next-action'>3-Golden Rules</a>

@@ -20,7 +20,10 @@
   margin-bottom: 10px;
   text-align: center;
   border-radius: 5px;
-
+}
+.passwordContainer{
+  position: relative;
+  display: inline;
 }
 .loginPw {
   padding: 5px;
@@ -32,8 +35,9 @@
 .togglePeek{
   width: 30px;
 position: absolute;
+right: 5px;
 padding: 0px;
-margin-left: 5px;
+/* margin-left: 5px; */
 background: none;
 border: none;
 }

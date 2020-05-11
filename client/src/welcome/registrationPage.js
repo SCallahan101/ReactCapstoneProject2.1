@@ -3,6 +3,7 @@ import {Route, Link} from 'react-router-dom';
 import {FormErrors} from './formErrors';
 // import MainPage from '../mainPage/mainPage';
 import { v4 as uuidv4 } from 'uuid';
+import swal from 'sweetalert';
 
 
 class Registration extends Component {
@@ -80,6 +81,15 @@ handleSubmit = async e =>{
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({username: this.state.username, password: this.state.password, firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email, userId: NewUserID}),
+  })
+  .then(data => {
+    // console.log('success: ', data);
+    // alert('Successful Registration');
+    swal("Congratulation!", "Your login profile have been registered in the system", "success");
+  })
+  .catch((error) => {
+    console.error("Error: ", error);
+    swal("ERROR!", "Something amissing or wrong input: " + error, "error");
   });
   this.setState({
     open: false,
