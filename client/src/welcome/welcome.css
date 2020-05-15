@@ -16,8 +16,10 @@
 }
 .loginUsername{
   padding: 5px;
-  margin-right: 5px;
-  margin-bottom: 10px;
+  width: 13rem;
+  margin: 0 5px 10px;
+  /* margin-right: 5px;
+  margin-bottom: 10px; */
   text-align: center;
   border-radius: 5px;
 }
@@ -27,15 +29,17 @@
 }
 .loginPw {
   padding: 5px;
-  margin-left: 5px;
-  margin-bottom: 10px;
+  width: 13rem;
+  margin: 0 5px 10px;
+  /* margin-left: 5px;
+  margin-bottom: 10px; */
   text-align: center;
   border-radius: 5px;
 }
 .togglePeek{
   width: 30px;
 position: absolute;
-right: 5px;
+right: 10px;
 padding: 0px;
 /* margin-left: 5px; */
 background: none;
@@ -70,6 +74,7 @@ border: none;
   display: inline-block;
 }
 .reg-box{
+  width: 12rem;
   padding: 5px;
   margin: 5px;
   border-radius: 5px;

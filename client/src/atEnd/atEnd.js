@@ -84,10 +84,10 @@ handleEditSubmit = async e =>{
         <Tabs>
           <TabList>
             <Tab>Your Story</Tab>
-            <Tab>Facts: Color Psychology</Tab>
-            <Tab>Facts: Subconscious Mind</Tab>
-            <Tab>Facts: Words Trigger</Tab>
-            <Tab>Facts: Visual Cues</Tab>
+            <Tab>Color Psychology</Tab>
+            <Tab>Subconscious Mind</Tab>
+            <Tab>Words Trigger</Tab>
+            <Tab>Visual Cues</Tab>
             <Tab>Next Action</Tab>
           </TabList>
           <TabPanel>
@@ -131,32 +131,32 @@ handleEditSubmit = async e =>{
           </TabPanel>
           <TabPanel>
             <div className='factsContent'>
-              <p>Different colors evoke different emotions.</p>
-              <p>Colors can even play tricks on your mind.</p>
-              <p>Colors can trigger deep childhood memories.</p>
-              <p>Color affects taste.</p>
-              <p>Colors can affect energy and blood pressure.</p>
+              <p>Fact #1: Different colors evoke different emotions.</p>
+              <p>Fact #2: Colors can even play tricks on your mind.</p>
+              <p>Fact #3: Colors can trigger deep childhood memories.</p>
+              <p>Fact #4: Color affects taste.</p>
+              <p>Fact #5: Colors can affect energy and blood pressure.</p>
             </div>
           </TabPanel>
           <TabPanel>
             <div className='factsContent'>
-              <p>The complex of mental activities within an individual that proceed without his awareness.</p>
-              <p>It picks up information and passing to the conscious through images, feelings, sensations, dream and reflexes. </p>
-              <p>The subconscious mind plays a complex, pervasive role in how you perceive the world.</p>
+              <p>Fact #1: The complex of mental activities within an individual that proceed without his awareness.</p>
+              <p>Fact #2: It picks up information and passing to the conscious through images, feelings, sensations, dream and reflexes. </p>
+              <p>Fact #3: The subconscious mind plays a complex, pervasive role in how you perceive the world.</p>
             </div>
           </TabPanel>
           <TabPanel>
             <div className='factsContent'>
-              <p>A trigger word is any word that inspires someone to act.</p>
-              <p>we, as people, are attracted to certain words and phrases.</p>
-              <p>Trigger words are those that cause ourselves to feel strong emotions because of previous experiences.</p>
+              <p>Fact #1: A trigger word is any word that inspires someone to act.</p>
+              <p>Fact #2: We, as people, are attracted to certain words and phrases.</p>
+              <p>Fact #3: Trigger words are those that cause ourselves to feel strong emotions because of previous experiences.</p>
             </div>
           </TabPanel>
           <TabPanel>
             <div className='factsContent'>
-              <p>Captivating images helps the person to mitigate the boredom and simulate the person.</p>
-              <p>Half of the human brain is directly or indirectly devoted to processing visual information.</p>
-              <p>Humans have a remarkable ability to remember pictures.</p>
+              <p>Fact #1: Captivating images helps the person to mitigate the boredom and simulate the person.</p>
+              <p>Fact #2: Half of the human brain is directly or indirectly devoted to processing visual information.</p>
+              <p>Fact #3: Humans have a remarkable ability to remember pictures.</p>
             </div>
           </TabPanel>
           <TabPanel>

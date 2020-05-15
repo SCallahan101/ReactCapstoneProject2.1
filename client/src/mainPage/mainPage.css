@@ -145,7 +145,14 @@ ul > .chapter {
   /* left: 25%; */
 }
 .hexsContainer{
-  position: relative;
+  /* overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap; */
+  display: flex;
+ flex-wrap: nowrap;
+ overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+  /* position: relative; */
   /* border: solid white; */
   width: 100%;
   height: 100%;
@@ -154,10 +161,10 @@ ul > .chapter {
   margin-top: -2em; */
 }
 .hexagon {
-  width: 25%;
-  height: 41.55%;
+  width: 100%;
+  height: 100%;
   clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
-  position: absolute;
+  /* position: absolute; */
   /* background: white; */
   /* margin-left: 50px; */
 }
@@ -168,7 +175,7 @@ ul > .chapter {
   margin: 20px 40px 5px;
   top: 15px;
 } */
-.hex1{
+/* .hex1{
   position: absolute;
   top: 2%;
   left: 3.72%;
@@ -230,7 +237,7 @@ ul > .chapter {
     left: 0;
     width: 100%;
     height: 100%;
-}
+} */
 /* .base {
   margin-left: 105px;
 } */
@@ -269,12 +276,47 @@ background: white;
   border-radius: 5px;
   /* object-fit: fill; */
 }
+.slider-control-bottomcenter{
+  bottom: 20% !important;
+}
+.paging-dot{
+  width: 10px !important;
+  height: 10px !important;
+}
+.paging-dot > circle{
+  cx: 5px !important;
+  cy: 5px !important;
+  r: 6px !important;
+}
+.testContainer{
+  width: 100%;
+  height: 100%;
+}
+.titleHex {
+  border: solid;
+text-align: center;
+font-size: 2em;
+background: whitesmoke;
+padding: 5px;
+width: fit-content;
+margin: 0 auto;
+}
+.slider-control-centerleft{
+  top: 41% !important;
+}
+.slider-control-centerright{
+  top: 41% !important;
+}
 .hexBox{
-  height: 0;
-    width: 0;
-    overflow: hidden;
-    padding: 13%;
-    border: solid red;
+  height: 280px;
+    width: 280px;
+    margin: 25% 5%;
+    /* display: inline-block; */
+     flex: 0 0 auto;
+    filter: drop-shadow(-1px 15px 3px rgba(0, 0, 0, 0.8));
+    /* overflow: hidden;
+    padding: 13%; */
+    /* border: solid red; */
     /* padding-top: 591.44px / 1127.34px * 100%; */
     /* background: white; */
 }
@@ -408,6 +450,8 @@ background: white;
 
 .react-tabs__tab-list {
  /* border-bottom: 1px solid #aaa; */
+ display: grid;
+ grid-template-columns: auto auto auto;
  margin: 0px;
  padding: 0;
  text-align: center;
@@ -649,6 +693,7 @@ border-color: transparent transparent white transparent;
   bottom: 25px;
   margin-left: -75px;
   left: 50%; */
+  background: whitesmoke;
   padding: 10px;
   width: 100%;
 }
@@ -886,8 +931,8 @@ height: 65px;
 position: absolute;
 /* top: -73px; */
 bottom: 0;
-right: 100px;
-left: 100px;
+right: 11.5%;
+left: 11.5%;
 display: flex;
 flex-direction: row;
 justify-content: space-between;
@@ -1066,10 +1111,10 @@ max-width: 98%;
 
 }
 @media only screen and (max-width: 480px){
-  .fillingStory{
+  /* .fillingStory{
     width: 82vw;
 left: -5em;
-  }
+  } */
 }
 
 
