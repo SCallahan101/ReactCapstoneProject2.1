@@ -837,10 +837,14 @@ color: white;
   margin: 0px;
   font-size: 54px;
   color: white;
-  font-weight: bolder;
+  font-family: 'Permanent Marker', cursive;
+  font-weight: lighter;
+  letter-spacing: 8px;
+  text-shadow: 5px 4px black;
+  /* font-weight: bolder;
   text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
   font-family: "Drafting";
-  font-weight: normal;
+  font-weight: normal; */
 }
 .dropbtn{
   background: whitesmoke;
