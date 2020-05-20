@@ -2,41 +2,41 @@ import React, {Component} from 'react';
 import shuffle from 'shuffle-array';
 
 const suggestions = [
-  {option: "Romance"
+  {id: '1A', option: "Romance"
   },
-  {option: "Warzone"
+  {id: '2A', option: "Warzone"
   },
-  {option: "Twist moment"
+  {id: '3A', option: "Twist moment"
   },
-  {option: "Betrayal"
+  {id: '4A',option: "Betrayal"
   },
-  {option: "Moment of truth"
+  {id: '5A', option: "Moment of truth"
   },
-  {option: "Befriend"
+  {id: '6A', option: "Befriend"
   },
-  {option: "Coming home"
+  {id: '7A', option: "Coming home"
   },
-  {option: "Discover"
+  {id: '8A', option: "Discover"
   },
-  {option: "Ambush"
+  {id: '9A', option: "Ambush"
   },
-  {option: "Murdered"
+  {id: '10A', option: "Murdered"
   },
-  {option: "Suspense"
+  {id: '11A', option: "Suspense"
   },
-  {option: "Crossroad"
+  {id: '12A', option: "Crossroad"
   },
-  {option: "Spying"
+  {id: '13A', option: "Spying"
   },
-  {option: "Following Clues"
+  {id: '14A', option: "Following Clues"
   },
-  {option: "Loss"
+  {id: '15A', option: "Loss"
   },
-  {option: "Bizarre"
+  {id: '16A', option: "Bizarre"
   },
-  {option: "Disease /Virus /Ravage"
+  {id: '17A', option: "Disease /Virus /Ravage"
   },
-  {option: "Family Dispute"
+  {id: '18A', option: "Family Dispute"
   },
 ];
 
@@ -65,7 +65,7 @@ class SuggestionsList extends Component {
       </div>
       <ul className='listOfSuggestions'>
        {suggestions.map(idea => (
-         <li className='singleSuggestion'>
+         <li className='singleSuggestion' key={idea.id}>
            <div>👋 {idea.option}</div>
          </li>
        ))}

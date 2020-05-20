@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, createRef} from 'react';
 import {Redirect} from 'react-router';
 // import shuffle from 'shuffle-array';
 // import hexIcon from '../hexagon.png';
@@ -33,35 +33,52 @@ class SettingChoices extends Component {
     super(props);
     this.state={
       slidesToShow: 3,
+      // wrapAround: true,
+      enableKeyboardControls: true,
       redirect: false,
       src: '',
     };
+    this.myRef = createRef();
     this.handleClick = this.handleClick.bind(this);
   }
+  componentDidMount(){
+    console.log(this.myRef.current?.clientWidth);
+    // console.log(window.innerWidth);
+    setInterval(() => {
+      if(this.myRef.current?.clientWidth <= 460){
+        this.setState({slidesToShow: 1});
+      } else if(this.myRef.current?.clientWidth <= 682){
+        this.setState({slidesToShow:2});
+      } else{
+        this.setState({slidesToShow: 3});
+      }
+    }, 200);
+  }
+
   handleClick = (imgSrc) => {
     console.log('the img that picked by the user: ' + imgSrc);
     this.setState({redirect: true, src: imgSrc});
   }
   render(){
     let arraySciFiPics = [
-    'https://wallpaperaccess.com/full/166017.jpg',
-    'http://s1.picswalls.com/thumbs2/2015/10/11/sci-fi-backgrounds_111319989_283.jpg',
-    'https://thewritingchimp.files.wordpress.com/2015/09/240691.jpg',
-    'https://weburbanist.com/wp-content/uploads/2016/07/SUNDAYS-644x320.png',
-    'https://wallpaperaccess.com/full/693873.jpg',
-    'https://images3.alphacoders.com/152/thumb-350-152779.jpg',
-    'https://wallup.net/wp-content/uploads/2018/09/28/954003-fantasy-adventure-kingdom-kingdoms-art-artwork-artistic.jpg',
-    'https://cdna.artstation.com/p/assets/images/images/000/275/000/large/Sorcery_Concept05.jpg?1414573487',
-    'https://cache.desktopnexus.com/thumbseg/1584/1584053-bigthumbnail.jpg',
-    'https://wallpapercave.com/wp/wp2773676.jpg',
-      'https://wallup.net/wp-content/uploads/2018/10/04/675384-sci-fi-battle-fighting-war-art-artwork-warrior-futuristic.jpg',
-      'https://i.pinimg.com/originals/eb/f4/cf/ebf4cf899f9b3a13f5e85dda13773345.jpg',
-      'https://i.pinimg.com/originals/5b/e5/ce/5be5ce754b095ce4aef65f650c75c982.jpg',
-      'https://wallpapercave.com/wp/wiO239E.jpg',
-      'https://wallpapercave.com/wp/8NBg7aT.jpg',
-      'http://getwallpapers.com/wallpaper/full/d/b/7/965932-mythical-background-1920x1080-for-mac.jpg',
-      'http://getwallpapers.com/wallpaper/full/d/c/f/966045-large-mythical-background-1920x1200-macbook.jpg',
-      'https://www.itl.cat/pngfile/big/3-38627_romantic-love-couple-wallpaper-hd-design-inspiration-boy.jpg'
+    {id: '1B', src: 'https://wallpaperaccess.com/full/166017.jpg'},
+    {id: '2B', src: 'http://s1.picswalls.com/thumbs2/2015/10/11/sci-fi-backgrounds_111319989_283.jpg'},
+    {id: '3B', src:'https://thewritingchimp.files.wordpress.com/2015/09/240691.jpg'},
+    {id: '4B', src:'https://weburbanist.com/wp-content/uploads/2016/07/SUNDAYS-644x320.png'},
+    {id: '5B', src:'https://wallpaperaccess.com/full/693873.jpg'},
+    {id: '6B', src:'https://images3.alphacoders.com/152/thumb-350-152779.jpg'},
+    {id: '7B', src:'https://wallup.net/wp-content/uploads/2018/09/28/954003-fantasy-adventure-kingdom-kingdoms-art-artwork-artistic.jpg'},
+    {id: '8B', src:'https://cdna.artstation.com/p/assets/images/images/000/275/000/large/Sorcery_Concept05.jpg?1414573487'},
+    {id: '9B', src:'https://cache.desktopnexus.com/thumbseg/1584/1584053-bigthumbnail.jpg'},
+    {id: '10B', src:'https://wallpapercave.com/wp/wp2773676.jpg'},
+    {id: '11B', src:'https://wallup.net/wp-content/uploads/2018/10/04/675384-sci-fi-battle-fighting-war-art-artwork-warrior-futuristic.jpg'},
+    {id: '12B', src:'https://i.pinimg.com/originals/eb/f4/cf/ebf4cf899f9b3a13f5e85dda13773345.jpg'},
+    {id: '13B', src:'https://i.pinimg.com/originals/5b/e5/ce/5be5ce754b095ce4aef65f650c75c982.jpg'},
+    {id: '14B', src:'https://wallpapercave.com/wp/wiO239E.jpg'},
+    {id: '15B', src:'https://wallpapercave.com/wp/8NBg7aT.jpg'},
+    {id: '16B', src:'http://getwallpapers.com/wallpaper/full/d/b/7/965932-mythical-background-1920x1080-for-mac.jpg'},
+    {id: '17B', src:'http://getwallpapers.com/wallpaper/full/d/c/f/966045-large-mythical-background-1920x1200-macbook.jpg'},
+    {id: '18B', src:'https://www.itl.cat/pngfile/big/3-38627_romantic-love-couple-wallpaper-hd-design-inspiration-boy.jpg'}
     ];
 
     // shuffle(arraySciFiPics);
@@ -75,12 +92,12 @@ class SettingChoices extends Component {
     return (
       <div className='testContainer'>
       <div className='titleHex'> Explore your Storyline Setting Choice </div>
-      <div className='hexsContainer'>
-      <Carousel slidesToShow={this.state.slidesToShow}>
+      <div className='hexsContainer' ref={this.myRef}>
+      <Carousel slidesToShow={this.state.slidesToShow} wrapAround={this.state.wrapAround}>
       {arraySciFiPics.map((value) => {
         return (
-          <div className='hexBox'>
-            <img className="hexagon" src={value} alt='hexagon icon' onClick={() => this.handleClick(value)}/>
+          <div className='hexBox' key={value.id}>
+            <img className="hexagon" src={value.src} alt='hexagon icon' onClick={() => this.handleClick(value)}/>
           </div>
         )
       })}

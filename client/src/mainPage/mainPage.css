@@ -124,8 +124,8 @@ ul > .chapter {
   cursor: pointer;
 }
 .logout-btn{
-  background-color: white;
-  border: 1px solid black;
+  background-color: whitesmoke;
+  /* border: 1px solid black; */
   border-radius: 5px;
   padding: 5px;
   text-decoration: none;
@@ -155,7 +155,7 @@ ul > .chapter {
   /* position: relative; */
   /* border: solid white; */
   width: 100%;
-  height: 100%;
+  height: 90%;
   /* height: 29em;
   margin-left: -4em;
   margin-top: -2em; */
@@ -279,6 +279,9 @@ background: white;
 .slider-control-bottomcenter{
   bottom: 20% !important;
 }
+.slider-control-bottomcenter > ul{
+  top: 55px !important;
+}
 .paging-dot{
   width: 10px !important;
   height: 10px !important;
@@ -293,9 +296,13 @@ background: white;
   height: 100%;
 }
 .titleHex {
-  border: solid;
+  border: solid gray 1px;
 text-align: center;
-font-size: 2em;
+/* font-size: 2em; */
+--minFontSize: 16px;
+    --maxFontSize: 200px;
+    --scaler: 2vw;
+    font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize));
 background: whitesmoke;
 padding: 5px;
 width: fit-content;
@@ -309,8 +316,10 @@ margin: 0 auto;
 }
 .hexBox{
   height: 280px;
-    width: 280px;
-    margin: 25% 5%;
+    /* width: 280px;
+    margin: 25% 5%; */
+    width: 95%;
+    margin: 10px auto;
     /* display: inline-block; */
      flex: 0 0 auto;
     filter: drop-shadow(-1px 15px 3px rgba(0, 0, 0, 0.8));
@@ -835,7 +844,11 @@ color: white;
 }
 .endTitle{
   margin: 0px;
-  font-size: 54px;
+  /* font-size: 54px; */
+  --minFontSize: 28px;
+    --maxFontSize: 200px;
+    --scaler: 3vw;
+    font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize));
   color: white;
   font-family: 'Permanent Marker', cursive;
   font-weight: lighter;
@@ -910,7 +923,7 @@ background-color: #f1f1f1;
 min-width: 50%;
 font-size: 14px;
 box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
-z-index: 1;
+z-index: 2;
 }
 .dropdown-suggestions {
   position: absolute;
@@ -922,7 +935,7 @@ border-top-left-radius: unset;
   background-color: #f1f1f1;
   min-width: 50%;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.8);
-  z-index: 1;
+  z-index: 2;
 }
 .chapCreationContainer{
   width: 100%;
@@ -968,9 +981,9 @@ height: 70vh;
 }
 @media only screen and (max-width: 1024px) {
   .hexBox{
-    padding: 15%;
+    /* padding: 15%; */
   }
-  .hex3{
+  /* .hex3{
     margin-left: -15.4%;
   }
   .hex4{
@@ -978,16 +991,16 @@ height: 70vh;
   }
   .hex5{
     right: 7.72%;
-  }
+  } */
 }
 @media only screen and (max-width: 768px) {
   .settingMessage{
     width: 95%;
   }
   .hexBox{
-    padding: 19%;
+    /* padding: 19%; */
   }
-  .hex1{
+  /* .hex1{
     top: 14%;
     left: 0;
   }
@@ -1004,7 +1017,7 @@ height: 70vh;
   }
   .hex5{
     right: 0;
-  }
+  } */
 
 }
 
@@ -1076,9 +1089,9 @@ max-width: 98%;
   width: 30%;
 }
 .hexBox{
-  padding: 13%;
+  /* padding: 13%; */
 }
-.hex1{
+/* .hex1{
   top: 3%;
   left: 3%;
 }
@@ -1095,18 +1108,22 @@ max-width: 98%;
 }
 .hex5{
   right: 3%;
-}
+} */
 .react-tabs__tab{
-  font-size: 2.4vw;
+  /* font-size: 2.4vw; */
+  --minFontSize: 12px;
+    --maxFontSize: 200px;
+    --scaler: 2vw;
+    font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize));
 }
 }
 @media only screen and (max-width: 755px) {
   .hexBox{
-    padding: 14%;
+    /* padding: 14%; */
   }
-  .hex3{
+  /* .hex3{
   margin-left: -14.45%
-  }
+  } */
 }
 @media only screen and (min-width: 756px){
   .dropdown-bar{
