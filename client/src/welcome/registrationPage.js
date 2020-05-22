@@ -82,24 +82,48 @@ handleSubmit = async e =>{
     },
     body: JSON.stringify({username: this.state.username, password: this.state.password, firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email, userId: NewUserID}),
   })
-  .then(data => {
-    // console.log('success: ', data);
-    // alert('Successful Registration');
-    swal("Congratulation!", "Your login profile have been registered in the system", "success");
+  .then(async response => {
+    const data = await response.json();
+    if(!response.ok){
+      const error = (data && data.message) || response.status;
+      return Promise.reject(error);
+    } else {
+      // alert('Congratulation you fuck');
+      swal("Congratulations!", "Your account registration has successfully submitted!", "success");
+    }
+    this.setState({
+      open: false,
+      username: '',
+      password: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      userId: ''
+    });
   })
-  .catch((error) => {
-    console.error("Error: ", error);
-    swal("ERROR!", "Something amissing or wrong input: " + error, "error");
+  .catch(error =>{
+    console.error('THere was an error!', error);
+    // alert(error);
+    swal("Issue occurred!", "Error: " + error, "error");
   });
-  this.setState({
-    open: false,
-    username: '',
-    password: '',
-    firstName: '',
-    lastName: '',
-    email: '',
-    userId: ''
-  });
+  // .then(data => {
+  //   // console.log('success: ', data);
+  //   // alert('Successful Registration');
+  //   swal("Congratulation!", "Your login profile have been registered in the system", "success");
+  // })
+  // .catch((error) => {
+  //   console.error("Error: ", error);
+  //   swal("ERROR!", "Something amissing or wrong input: " + error, "error");
+  // });
+  // this.setState({
+  //   open: false,
+  //   username: '',
+  //   password: '',
+  //   firstName: '',
+  //   lastName: '',
+  //   email: '',
+  //   userId: ''
+  // });
 };
   render(){
     return(

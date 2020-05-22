@@ -97,7 +97,7 @@ class SettingChoices extends Component {
       {arraySciFiPics.map((value) => {
         return (
           <div className='hexBox' key={value.id}>
-            <img className="hexagon" src={value.src} alt='hexagon icon' onClick={() => this.handleClick(value)}/>
+            <img className="hexagon" src={value.src} alt='hexagon icon' onClick={() => this.handleClick(value.src)}/>
           </div>
         )
       })}

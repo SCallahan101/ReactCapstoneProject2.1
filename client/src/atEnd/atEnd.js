@@ -26,27 +26,51 @@ class TheEnd extends Component{
   };
 
 // swal("Double Checking", "Are you sure about delete this "+ `${chapterlist.title} ${chapterlist.id}`+ " chapter?", "info")
-  async deleteChapter(chapterlist){
-    if(window.confirm(`Are you sure about delete this "${chapterlist.title}" chapter?`)) {
-      fetch('/api/FinalizeTheStory/' + `${chapterlist.id}`, {
-        method: 'DELETE',
-      })
-      .then(res => res.text())
-      .then(res => console.log(res));
-    //   .then(function(response) {
-    //     if (!response.ok) {
-    //         throw Error(response.statusText);
-    //     }
-    //     return response;
-    // }).then(function(response) {
-    //     console.log("ok");
-    // }).catch(function(error) {
-    //     console.log(error);
-    // });
-      // await this.fetch('delete', `/api/FinalizeTheStory/${chapterlist.id}`);
-      // this.callApi();
-    }
+async deleteChapter(chapterlist){
+  swal({
+  title: "Double Checking - Are you sure?",
+  text: "Once deleted, " + `${chapterlist.title}` + " chapter will be POOF for good!" ,
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willDelete) => {
+  if (willDelete) {
+    swal("It is done! Another chapter victim has fallen to the Great Trash!", {
+      icon: "success",
+    });
+    fetch('/api/FinalizeTheStory/' + `${chapterlist.id}`, {
+      method: 'DELETE',
+    })
+    .then(res => res.text())
+    .then(res => console.log(res));
+  } else {
+    swal("Whew, " + `${chapterlist.title}` + " chapter escaped the Great Trash's grasp!");
   }
+})
+}
+
+  // async deleteChapter(chapterlist){
+  //   if(window.confirm(`Are you sure about delete this "${chapterlist.title}" chapter?`)) {
+  //     fetch('/api/FinalizeTheStory/' + `${chapterlist.id}`, {
+  //       method: 'DELETE',
+  //     })
+  //     .then(res => res.text())
+  //     .then(res => console.log(res));
+  //   //   .then(function(response) {
+  //   //     if (!response.ok) {
+  //   //         throw Error(response.statusText);
+  //   //     }
+  //   //     return response;
+  //   // }).then(function(response) {
+  //   //     console.log("ok");
+  //   // }).catch(function(error) {
+  //   //     console.log(error);
+  //   // });
+  //     // await this.fetch('delete', `/api/FinalizeTheStory/${chapterlist.id}`);
+  //     // this.callApi();
+  //   }
+  // }
 selectedChapter(id, num, title, content, event){
   console.log(id + ' ' + num + ' ' + title + ' ' + content);
   // const activeChapterNum = num;
@@ -61,8 +85,19 @@ selectedChapter(id, num, title, content, event){
 }
 handleEditSubmit = async e =>{
   e.preventDefault();
-  if(window.confirm(`Are you sure about your edit changes on this chapter?`)) {
-    const response = await fetch('/api/FinalizeTheStory/'+ `${this.state.activeId}`, {
+  swal({
+  title: "Double Checking - Are you sure?",
+  text: "Once you make those changes, the information will be updated with no redo at all!" ,
+  icon: "warning",
+  buttons: true,
+  dangerMode: true,
+})
+.then((willEdit) => {
+  if (willEdit) {
+    swal("It is done! The new changes are up to the date for this chapter!", {
+      icon: "success",
+    });
+    const response = fetch('/api/FinalizeTheStory/'+ `${this.state.activeId}`, {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -75,8 +110,28 @@ handleEditSubmit = async e =>{
   )
     .then(res => res.text())
     .then(res => console.log(res));
+  } else {
+    swal("Your edits on the current chapter has cancelled. So, it is all safe for now...");
   }
+})
 };
+
+//   if(window.confirm(`Are you sure about your edit changes on this chapter?`)) {
+//     const response = await fetch('/api/FinalizeTheStory/'+ `${this.state.activeId}`, {
+//       method: 'PUT',
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       body: JSON.stringify({id: this.state.activeId, chapterNum: this.state.activeChapterNum, title: this.state.activeTitle, content: this.state.activeContent}),
+//     })
+//     .then(this.setState({
+//       show: false
+//     })
+//   )
+//     .then(res => res.text())
+//     .then(res => console.log(res));
+//   }
+// };
 
   render(){
     return(

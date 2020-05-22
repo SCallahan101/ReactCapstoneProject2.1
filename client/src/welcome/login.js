@@ -3,6 +3,7 @@ import {Link, withRouter} from 'react-router-dom';
 import Registration from './registrationPage';
 import OpenEye from '../SvgIcons/eye-regular.svg';
 import CloseEye from '../SvgIcons/eye-slash-regular.svg';
+import swal from 'sweetalert';
 
 class Login extends Component {
   constructor(){
@@ -39,6 +40,7 @@ handleSubmit = async e => {
     this.props.history.push('/MainPage/ShortIntro');
   }).catch((err) => {
       console.log(err);
+      swal("Login Failed", "Please check your Username and/or Password again", "error");
   });
 
   // response.then(res => {

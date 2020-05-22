@@ -319,7 +319,7 @@ margin: 0 auto;
     /* width: 280px;
     margin: 25% 5%; */
     width: 95%;
-    margin: 10px auto;
+    margin: 10% auto;
     /* display: inline-block; */
      flex: 0 0 auto;
     filter: drop-shadow(-1px 15px 3px rgba(0, 0, 0, 0.8));
@@ -1089,6 +1089,7 @@ max-width: 98%;
   width: 30%;
 }
 .hexBox{
+  margin: 4% auto;
   /* padding: 13%; */
 }
 /* .hex1{
