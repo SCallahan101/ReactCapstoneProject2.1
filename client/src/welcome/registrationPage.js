@@ -4,12 +4,14 @@ import {FormErrors} from './formErrors';
 // import MainPage from '../mainPage/mainPage';
 import { v4 as uuidv4 } from 'uuid';
 import swal from 'sweetalert';
+import OpenEye from '../SvgIcons/eye-regular.svg';
 
 
 class Registration extends Component {
   constructor(){
     super();
     this.state={
+      passwordIsMasked: true,
       open: false,
       username: "",
       password: "",
@@ -27,6 +29,10 @@ class Registration extends Component {
   togglePanel(e){
     this.setState({open: !this.state.open})
   }
+  togglePeek = (e) =>{
+    e.preventDefault();
+    this.setState(prevState => ({ passwordIsMasked: !prevState.passwordIsMasked}));
+};
 //   handleChange = e => {
 //   this.setState({
 //     [e.target.name]: e.target.value
@@ -52,7 +58,7 @@ validateField(fieldName, value){
     break;
     case 'password':
     passwordValid = value.length > 8;
-    fieldValidationErrors.password = passwordValid ? '' : ' is too short';
+    fieldValidationErrors.password = passwordValid ? '' : ' need 9 characters or more';
     break;
     case 'email':
     emailValid = value.match(/^([\w.%+-]+)@([\w-]+\.)+([\w]{2,})$/i);
@@ -126,6 +132,7 @@ handleSubmit = async e =>{
   // });
 };
   render(){
+    const {passwordIsMasked} = this.state;
     return(
       <div className='registrationBoard'>
         <button className='registration-btn reg-draw-border' onClick={(e) => this.togglePanel(e)}>Create a Storyteller Account</button>
@@ -135,7 +142,10 @@ handleSubmit = async e =>{
             <FormErrors formErrors={this.state.formErrors} />
             <div className={`${this.errorClass(this.state.formErrors.password)}`}></div>
             <input className='username reg-box' type='text' placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
-            <input className='password reg-box' type='text' placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
+            <div className='passwordContainer'>
+            <input className='password reg-box' type={passwordIsMasked ? 'password' : 'text'} placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
+            <span className='togglePeekReg'onClick={this.togglePeek} ><img src={OpenEye} /></span>
+            </div>
             <br />
             <input className='firstName reg-box' type='text' placeholder='Your first name?' name='firstName' value={this.state.firstName} onChange={e => this.setState({firstName: e.target.value})}/>
             <input className='lastName reg-box' type='text' placeholder='Your last name?' name='lastName' value={this.state.lastName} onChange={e => this.setState({lastName: e.target.value})}/>
@@ -145,6 +155,7 @@ handleSubmit = async e =>{
 
             </div>
             <button type='submit' className='register-btn reg-draw-border' disabled={!this.state.formValid}>Register</button>
+            <button type='button' className='register-btn reg-draw-border' onClick={(e) => this.togglePanel(e)}>Cancel</button>
           </form>
         ): null}
       </div>

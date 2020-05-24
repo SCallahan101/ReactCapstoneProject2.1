@@ -23,6 +23,7 @@
       /* left: 15.55%; */
 }
 .progressBar{
+  position: relative;
   /* position: absolute;
   left: 0px; */
   /* text-align: center; */
@@ -36,6 +37,42 @@
   border-radius: 5px;
   overflow: overlay;
 }
+.invisibleBox{
+  position: absolute;
+      /* background: white; */
+  /* border: solid; */
+  margin-left: 5px;
+  width: calc(12% + 2.5em);
+  height: 98%;
+  z-index: 1;
+}
+.invisibleBox .storyPlot-tooltip{
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 110%;
+}
+.invisibleBox .storyPlot-tooltip::after{
+  content: "";
+position: absolute;
+top: 50%;
+right: 100%;
+margin-top: -15px;
+border-width: 15px;
+border-style: solid;
+border-color: transparent black transparent transparent;
+}
+.invisibleBox:hover .storyPlot-tooltip{
+  visibility: visible;
+}
+
 ::-webkit-scrollbar {
   width: 0px;
   background: transparent; /* make scrollbar transparent */
@@ -309,12 +346,18 @@ width: fit-content;
 margin: 0 auto;
 }
 .slider-control-centerleft{
-  top: 41% !important;
+  top: 91% !important;
+  left: 24% !important;
 }
 .slider-control-centerright{
-  top: 41% !important;
+  top: 91% !important;
+  right: 24% !important;
+}
+ul.slider-list{
+  cursor: initial !important;
 }
 .hexBox{
+  cursor: initial;
   height: 280px;
     /* width: 280px;
     margin: 25% 5%; */
@@ -706,6 +749,9 @@ border-color: transparent transparent white transparent;
   padding: 10px;
   width: 100%;
 }
+.outside-btn:hover{
+  cursor: pointer;
+}
 .inside-btn{
   position: absolute;
   top: 4%;
@@ -715,6 +761,9 @@ border-color: transparent transparent white transparent;
   border: none;
   width: 25px;
   padding: 0px;
+}
+.inside-btn:hover{
+  cursor: pointer;
 }
 .modal-btn{
 }
@@ -1029,6 +1078,9 @@ height: 70vh;
   .progressBar{
     visibility: hidden;
     position: absolute;
+  }
+  .invisibleBox:hover .storyPlot-tooltip{
+    visibility: hidden;
   }
   .StoryMakingContainer{
     /* width: 98%%; */

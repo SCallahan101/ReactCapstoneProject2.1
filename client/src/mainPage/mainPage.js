@@ -77,9 +77,12 @@ class TheMain extends Component {
         )}
         </div>
         <section className='StoryMakingContainer'>
+        <div className="invisibleBox">
+            <span className="storyPlot-tooltip">This tab is only to show your progress with your storyline. To see inside your chapters then go to the finalize page.</span>
+        </div>
         <section className='progressBar'>
           <div className='chapterStories'>
-            Progress
+            Story Draft
           </div>
           <TheList chapterlists={chapterlists} />
         </section>

@@ -6,8 +6,8 @@ class Intro extends Component {
     return (
       <div className='intro'>
         <h2>Welcome to your own brainstorm central!</h2>
-        <p>Basically, this draftboard is here to help you to write your own epic journey of Sci-Fi book. The idea is to reduce the possible of writer blocks by offering you hints, suggestions, ideas, or unconcousiness assistance.</p>
-        <NavLink to={'/MainPage/Choices'}><button className='btn draw-border'>Let start creating some chapters!!</button></NavLink>
+        <p>Basically, this draftboard is here to help you to break down any possible writer blocks that you might have prior to this. There are various psychological assistances such as colors for emotions stimulation, word triggers, visual cues, and background reflections.</p>
+        <NavLink to={'/MainPage/Choices'}><button className='btn draw-border'>Click here to start creating some chapters!!</button></NavLink>
       </div>
     )
   }

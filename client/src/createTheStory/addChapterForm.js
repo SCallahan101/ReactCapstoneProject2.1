@@ -67,7 +67,7 @@ class ListToAdd extends Component {
   render(){
     return (
       <div className='chapterModalContainer'>
-      <button className='modal outside-btn' onClick={e => { this.showModal(e); }}>Create new chapter</button>
+      <button className='modal outside-btn' onClick={e => { this.showModal(e); }}>Fill out chapter information</button>
       <ModalBox onClose={this.showModal} show={this.state.show}>
       <form className='fillingStory' onSubmit={this.handleSubmit}>
         <input className='chapterNumber' type='text' placeholder='Chapter-nth?' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />

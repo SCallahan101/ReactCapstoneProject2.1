@@ -91,7 +91,7 @@ class SettingChoices extends Component {
     }
     return (
       <div className='testContainer'>
-      <div className='titleHex'> Explore your Storyline Setting Choice </div>
+      <div className='titleHex'>Please select your background to start create your chapter.</div>
       <div className='hexsContainer' ref={this.myRef}>
       <Carousel slidesToShow={this.state.slidesToShow} wrapAround={this.state.wrapAround}>
       {arraySciFiPics.map((value) => {
