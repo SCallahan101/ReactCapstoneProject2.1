@@ -12,6 +12,3 @@ export default function Welcome(props) {
     </div>
   )
 }
-
-
-//<SignUp /> save it for later after clear up.

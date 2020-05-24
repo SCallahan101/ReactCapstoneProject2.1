@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
 import {FormErrors} from './formErrors';
-// import MainPage from '../mainPage/mainPage';
 import { v4 as uuidv4 } from 'uuid';
 import swal from 'sweetalert';
 import OpenEye from '../SvgIcons/eye-regular.svg';
-
 
 class Registration extends Component {
   constructor(){
@@ -33,11 +31,6 @@ class Registration extends Component {
     e.preventDefault();
     this.setState(prevState => ({ passwordIsMasked: !prevState.passwordIsMasked}));
 };
-//   handleChange = e => {
-//   this.setState({
-//     [e.target.name]: e.target.value
-//   });
-// }
 handleChange = (e) => {
   const name = e.target.name;
   const value = e.target.value;
@@ -94,7 +87,6 @@ handleSubmit = async e =>{
       const error = (data && data.message) || response.status;
       return Promise.reject(error);
     } else {
-      // alert('Congratulation you fuck');
       swal("Congratulations!", "Your account registration has successfully submitted!", "success");
     }
     this.setState({
@@ -112,24 +104,6 @@ handleSubmit = async e =>{
     // alert(error);
     swal("Issue occurred!", "Error: " + error, "error");
   });
-  // .then(data => {
-  //   // console.log('success: ', data);
-  //   // alert('Successful Registration');
-  //   swal("Congratulation!", "Your login profile have been registered in the system", "success");
-  // })
-  // .catch((error) => {
-  //   console.error("Error: ", error);
-  //   swal("ERROR!", "Something amissing or wrong input: " + error, "error");
-  // });
-  // this.setState({
-  //   open: false,
-  //   username: '',
-  //   password: '',
-  //   firstName: '',
-  //   lastName: '',
-  //   email: '',
-  //   userId: ''
-  // });
 };
   render(){
     const {passwordIsMasked} = this.state;
@@ -152,7 +126,6 @@ handleSubmit = async e =>{
             <br />
             <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`} >
             <input className='email reg-box' type='email' placeholder='Your Email?' name='email' value={this.state.email} onChange={this.handleChange} />
-
             </div>
             <button type='submit' className='register-btn reg-draw-border' disabled={!this.state.formValid}>Register</button>
             <button type='button' className='register-btn reg-draw-border' onClick={(e) => this.togglePanel(e)}>Cancel</button>
@@ -162,7 +135,5 @@ handleSubmit = async e =>{
     );
   }
 }
-
-        // <Link to={'/'}><button className='login-btn login-draw-border'>Back to Login</button></Link>
 
 export default Registration;

@@ -19,30 +19,17 @@ const createAuthToken = function(user) {
 
 const localAuth = passport.authenticate('local', {session: false});
 router.use(bodyParser.json());
-// The user provides a username and password to login
 router.post('/login', localAuth, (req, res) => {
   console.log(`In /login request successfully received Username: ${req.body.username} and PW: ${req.body.password}`);
   const userID = req.user.userId;
-  // res.json({userID});
   console.log('Test to discover if ID came through: ' + userID);
   const authToken = createAuthToken(req.user.serialize());
   res.json({authToken, userID});
   console.log('AuthToken successfully retrieved! : ' + authToken);
-  // fetch('http://localhost:3000/api/protected', {
-  //   method: "GET",
-  //   headers: {
-  //     'Authorization': 'Bearer ' + authToken,
-  //     'Content-Type': 'application/json'
-  //   },
-  //   dataType: 'json'
-  // }).then((res) => {
-  //   res.json('It works with jwt');
-  // }).catch((error) => console.error(error));
 });
 
 const jwtAuth = passport.authenticate('jwt', {session: false});
 
-// The user exchanges a valid JWT for a new one with a later expiration
 router.post('/refresh', jwtAuth, (req, res) => {
   const authToken = createAuthToken(req.user);
   res.json({authToken});

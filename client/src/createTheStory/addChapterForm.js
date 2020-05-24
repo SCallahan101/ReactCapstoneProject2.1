@@ -1,11 +1,9 @@
-// import React, {useState} from 'react';
 import React, {Component} from 'react';
 import {NavLink} from 'react-router-dom';
 import WindowCloseSvg from '../SvgIcons/window-close-regular.svg';
 import swal from 'sweetalert';
-
 import ModalBox from './modal';
-// import TheList from './totalProgress';
+
 class ListToAdd extends Component {
   state = {
     chapterNum: '',
@@ -38,8 +36,6 @@ class ListToAdd extends Component {
       body: JSON.stringify({userId: idAuthor, chapterNum: this.state.chapterNum, title: this.state.title, content: this.state.content}),
     })
     .then(data => {
-      // console.log('success: ', data);
-      // alert('Successful Registration');
       swal("Confirmed!", "Your new additional chapter has been added to your Storyline!", "success");
       this.setState({
         chapterNum: '',
@@ -51,10 +47,6 @@ class ListToAdd extends Component {
       console.error("Error: ", error);
       swal("ERROR!", "Something amissing or wrong input: " + error, "error");
     });
-    // const body = await response.text();
-    // this.setState({responseToPost: body});
-    // console.log(this.state.responseToPost);
-  // on bottom of html list <p>{this.state.responseToPost}</p>
   };
   state = {
     show: false
@@ -85,95 +77,4 @@ class ListToAdd extends Component {
   }
 }
 
-
-
-
-
-
-
-// const progressChapters = [
-//   {chapter: 3,
-//    title: 'End',
-//    content:'',
-//  },
-//   {chapter: 4,
-//    title: 'Nowhere',
-//    content: '',
-//  },
-// ];
-// function ListToAdd() {
-//   const [form, setState] = useState({
-//     chapter: '',
-//     title: '',
-//     content: '',
-//   });
-//
-//   const doubleCheckValues = e => {
-//     e.preventDefault();
-//     console.log('Chapter: ' + form.chapter, 'Title: ' + form.title);
-//
-//   };
-//
-//   const newChapterInfo = e => {
-//     setState({
-//       ...form,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-//
-//   return(
-//     <form className='fillingStory' onSubmit={doubleCheckValues}>
-//       <p className='thoughts'>Type in your thoughts:</p>
-//       What chapter is it now? <input className='chapterNumber' type='text' value={form.chapter} onChange={newChapterInfo} name='chapter' />
-//       <br />
-//       Type your title: <input className='titleInput' type='text' value={form.title} onChange={newChapterInfo} name='title' />
-//       <br />
-//       <p className='thoughts'>Type in your thoughts:</p>
-//       <textarea className='storyBox' value={form.content} onChange={newChapterInfo} name='content'>Go crazy!</textarea>
-//       <button type='submit'>Add to your progress list: </button>
-//       <Link to={'/MainPage/Choices'}>Go Back</Link>
-//       <span> </span>
-//       <Link to={'/MainPage/WrapItUp'}>Done with my story!</Link>
-//     </form>
-//   );
-// };
-
-
 export default ListToAdd;
-
-// function ListToAdd() {
-//   const [form, setState] = useState({
-//     chapter: '',
-//     title: '',
-//     content: '',
-//   });
-//
-//   const doubleCheckValues = e => {
-//     e.preventDefault();
-//     console.log('Chapter: ' + form.chapter, 'Title: ' + form.title);
-//
-//   };
-//
-//   const newChapterInfo = e => {
-//     setState({
-//       ...form,
-//       [e.target.name]: e.target.value
-//     });
-//   };
-//
-//   return(
-//     <form className='fillingStory' onSubmit={doubleCheckValues}>
-//       <p className='thoughts'>Type in your thoughts:</p>
-//       What chapter is it now? <input className='chapterNumber' type='text' value={form.chapter} onChange={newChapterInfo} name='chapter' />
-//       <br />
-//       Type your title: <input className='titleInput' type='text' value={form.title} onChange={newChapterInfo} name='title' />
-//       <br />
-//       <p className='thoughts'>Type in your thoughts:</p>
-//       <textarea className='storyBox' value={form.content} onChange={newChapterInfo} name='content'>Go crazy!</textarea>
-//       <button type='submit'>Add to your progress list: </button>
-//       <Link to={'/MainPage/Choices'}>Go Back</Link>
-//       <span> </span>
-//       <Link to={'/MainPage/WrapItUp'}>Done with my story!</Link>
-//     </form>
-//   );
-// };

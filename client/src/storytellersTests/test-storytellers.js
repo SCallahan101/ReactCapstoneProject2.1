@@ -8,9 +8,6 @@ const {Storyteller} = require('../storytellers');
 
 const expect = chai.expect;
 
-// This let's us make HTTP requests
-// in our tests.
-// see: https://github.com/chaijs/chai-http
 chai.use(chaiHttp);
 
 describe('/api/user', function() {
@@ -55,7 +52,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
@@ -79,7 +75,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
@@ -104,7 +99,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
@@ -185,7 +179,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
@@ -212,7 +205,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
@@ -239,7 +231,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
@@ -293,7 +284,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');
@@ -339,7 +329,6 @@ describe('/api/user', function() {
           lastName
         })
           .then(() =>
-            // Try to create a second user with the same username
             chai.request(app).post('/api/users').send({
               username,
               password,
@@ -354,7 +343,6 @@ describe('/api/user', function() {
             if (err instanceof chai.AssertionError) {
               throw err;
             }
-
             const res = err.response;
             expect(res).to.have.status(422);
             expect(res.body.reason).to.equal('ValidationError');

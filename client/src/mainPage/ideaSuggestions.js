@@ -51,49 +51,23 @@ class SuggestionsList extends Component {
          this.setState({suggestions: [...suggestions]});
        }, 200);
   };
-  // componentDidMount(){
-  //   setInterval(() => {
-  //     shuffle(suggestions);
-  //     this.setState({suggestions: [...suggestions]});
-  //   }, 10000);
-  // }
+
   render(){
     return (
       <div>
-      <div className='boxOfSuggestions'>
-        <button className='ideaBar-btn draw-border' onClick={() => this.listHandleClick()} >Click for Theme Assist</button>
-      </div>
-      <ul className='listOfSuggestions'>
-       {suggestions.map(idea => (
-         <li className='singleSuggestion' key={idea.id}>
-           <div>👋 {idea.option}</div>
-         </li>
-       ))}
-     </ul>
+        <div className='boxOfSuggestions'>
+          <button className='ideaBar-btn draw-border' onClick={() => this.listHandleClick()} >Click for Theme Assist</button>
+        </div>
+        <ul className='listOfSuggestions'>
+         {suggestions.map(idea => (
+           <li className='singleSuggestion' key={idea.id}>
+             <div>👋 {idea.option}</div>
+           </li>
+         ))}
+       </ul>
      </div>
    );
   }
 }
-// var counter = 0;
-// var i = setInterval(function() {
-//   shuffle(suggestions);
-//   counter++;
-//   if(counter === 5){
-//     clearInterval(i);
-//   }
-// }, 1000);
-// setInterval(() => {
-//   shuffle(suggestions);
-// }, 1000);
-//
-// const SuggestionsList = () => (
-//   <ul className='listOfSuggestions'>
-//     {suggestions.map(idea => (
-//       <li className='singleSuggestion'>
-//         <div>👋 {idea.option}</div>
-//       </li>
-//     ))}
-//   </ul>
-// );
 
 export default SuggestionsList;

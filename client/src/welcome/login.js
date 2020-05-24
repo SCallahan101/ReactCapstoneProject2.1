@@ -35,30 +35,12 @@ handleSubmit = async e => {
     console.log('Post-log test:' + authorID + ' ' + token);
     localStorage.setItem('author', authorID);
     localStorage.setItem('userToken', token);
-    // this.props.history.push('/MainPage/ShortIntro');
   }).then(() => {
     this.props.history.push('/MainPage/ShortIntro');
   }).catch((err) => {
       console.log(err);
       swal("Login Failed", "Please check your Username and/or Password again", "error");
   });
-
-  // response.then(res => {
-  //   if(response.ok){
-  //     return res.json();
-  //   }
-  //   return res.json().then(err => {
-  //     Promise.reject(err);
-  //   })
-  // })
-  // .then(token => {
-  //   localStorage.setItem('userToken', token);
-  //   this.props.history.push('/MainPage/ShortIntro')
-  // })
-  // .catch((err) => {
-  //   console.log(err);
-  // });
-  // console.log(`${this.state.loginUsername} + ' ' + ${this.state.loginPw}`);
 };
   render(){
     const {passwordIsMasked} = this.state;

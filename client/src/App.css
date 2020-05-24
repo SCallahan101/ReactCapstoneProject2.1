@@ -1,32 +1,19 @@
 .App {
-  /* background-color: #AF37A7; */
   animation: colorchange 50s;
   animation-iteration-count: infinite;
   position: relative;
-  /* height: vh; */
-  /* width: 100vh; */
-  /* min-height: 100vh; */
 }
-/* @import url(//db.onlinewebfonts.com/c/010ccd5e01410372451e339ff869a99b?family=Drafting); */
-
-/* @font-face {
-  font-family: "Drafting";
-  src:
-   url("//db.onlinewebfonts.com/t/010ccd5e01410372451e339ff869a99b.woff2") format("woff2"),
-   url("//db.onlinewebfonts.com/t/010ccd5e01410372451e339ff869a99b.woff") format("woff");
- } */
-
  @keyframes colorchange
-    {
-      0%   {background: maroon;}
-      25%  {background: #AF37A7;}
-      50%  {background: steelblue;}
-      75%  {background: forestgreen;}
-      95% {background: orange;}
-      100% {background: maroon;}
-    }
+  {
+    0%   {background: maroon;}
+    25%  {background: #AF37A7;}
+    50%  {background: steelblue;}
+    75%  {background: forestgreen;}
+    95% {background: orange;}
+    100% {background: maroon;}
+  }
 .Particles {
-height: 100vh;
+  height: 100vh;
 }
 .TopBoard {
   font-family: 'Permanent Marker', cursive;
@@ -36,28 +23,18 @@ height: 100vh;
   position: absolute;
   left: 0;
   right: 0;
-    /* top: -5%;
-    left: 50%;
-      margin-left: -32%; */
-      padding: 5px;
-      width: 97%;
-      height: 10%;
-      max-height: 10%;
-      margin: 0 auto;
-      text-align: center;
-      /* border: solid woo 5px; */
-      /* font-size: 8vh; */
-      --minFontSize: 28px;
-    --maxFontSize: 200px;
-    --scaler: 3vw;
-    font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize));
-    color: white;
-    /* font-weight: bolder; */
-    /* text-shadow: 5px 5px 0 rgba(0, 0, 0, 0.7);
-    font-family: "Drafting";
-    font-weight: normal; */
+  padding: 5px;
+  width: 97%;
+  height: 10%;
+  max-height: 10%;
+  margin: 0 auto;
+  text-align: center;
+  --minFontSize: 28px;
+  --maxFontSize: 200px;
+  --scaler: 3vw;
+  font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize));
+  color: white;
 }
-
 .login-draw-border {
   box-shadow: inset 0 0 0 4px white;
   color: black;
@@ -111,7 +88,6 @@ height: 100vh;
 .login-btn:focus {
   outline: none;
 }
-
 .reg-draw-border {
   box-shadow: inset 0 0 0 4px white;
   color: black;
@@ -177,26 +153,13 @@ height: 100vh;
 .register-btn:focus {
   outline: none;
 }
-
-
 button {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
 input{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
-
 @media only screen and (max-width: 600px) {
-  /* .introContainer{
-    width: 99%;
-    top: 4em;
-    font-size: 12px;
-    position: absolute;
-  }
-  .welcomeBox{
-    width: 70%;
-    margin: .5em auto;
-  } */
   .login-btn{
     font-size: 1rem;
   }
@@ -204,69 +167,10 @@ input{
     font-size: 1rem;
   }
 }
-/* @media only screen and (max-width: 992px){
-  .introContainer{
-    width: 99%;
-    top: 4em;
-    font-size: 12px;
-    position: absolute;
-  }
-  .welcomeBox{
-    width: 70%;
-    margin: .5em auto;
-  }
-} */
 @media only screen and (max-width: 1400px){
   .introContainer{
     width: 99%;
-    /* top: 4em; */
     font-size: 12px;
     position: absolute;
   }
-  .welcomeBox{
-    /* width: 70%; */
-    /* margin: .5em auto; */
-  }
 }
-/* @media only screen and (max-width: 992px){
-  .welcomeBox{
-    left: 50%;
-    margin-left: -307.5px;
-  }
-  .TopBoard{
-    font-size: 2.8em;
-    top: -6px;
-    left: 50%;
-    margin-left: -263px;
-  }
-}
-@media only screen and (max-width: 822px){
-  .TopBoard{
-    font-size: 2.1em;
-  margin-left: -200px;
-  top: 12px;
-  }
-}
-@media only screen and (max-width: 688px){
-  body{
-    width: 100%;
-  }
-  .TopBoard{ */
-    /* font-size: 2em; */
-    /* top: -14px;
-    left: 50%;
-    margin-left: -195.5px;
-  }
-  .welcomeBox{
-    width: 30em;
-    left: 50%;
-    margin-left: -240px;
-  }
-  .welcomeTitle{
-    font-size: 1.5em;
-  }
-  .togglePeek{
-    width: 1.5em;
-    margin-top: 5px;
-  }
-} */

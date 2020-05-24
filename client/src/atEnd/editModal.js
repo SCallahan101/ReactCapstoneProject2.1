@@ -6,14 +6,6 @@ class EditModal extends Component {
   onClose = e => {
     this.props.onClose && this.props.onClose(e);
   };
-  // state = {
-  //   show: false
-  // };
-  // showModal = e => {
-  //   this.setState({
-  //     show: true
-  //   });
-  // };
   render(){
     if(!this.props.show){
       return null;

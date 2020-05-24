@@ -1,10 +1,6 @@
 'use strict';
 const bcrypt = require('bcryptjs');
 const mongoose = require('mongoose');
-// const uuid = require('uuid');
-// const { v4: uuidv4 } = require('uuid');
-
-// mongoose.Promise = global.Promise;
 
 const StorytellerSchema = mongoose.Schema({
   username: {

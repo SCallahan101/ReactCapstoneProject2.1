@@ -1,6 +1,5 @@
 import React, {Component, createRef} from 'react';
 import {Route, Link, Switch, NavLink} from 'react-router-dom';
-// import hexIcon from '../hexagon.png';
 import './mainPage.css';
 import {Tab, Tabs, TabList, TabPanel} from 'react-tabs';
 import SettingChoices from './settingChoices';
@@ -9,7 +8,6 @@ import createTheStory from '../createTheStory/createTheStory';
 import TheEnd from '../atEnd/atEnd';
 import TheList from '../createTheStory/totalProgress';
 import SuggestionsList from './ideaSuggestions';
-// import 'react-tabs/style/react-tabs.css';
 
 class TheMain extends Component {
   constructor(props){
@@ -39,14 +37,6 @@ class TheMain extends Component {
     });
   };
 
-
-  // handleProgressBtn(e){
-  //   this.setState({mobileProgress: !this.state.mobileProgress});
-  // }
-  // handleSuggestionsBtn(e){
-  //   this.setState({mobileSuggestions: !this.state.mobileSuggestions});
-  // }
-
   componentDidMount() {
     const preDataId = localStorage.getItem('author');
     const authorId = preDataId.replace(/['"]+/g, '');
@@ -56,7 +46,6 @@ class TheMain extends Component {
       .then(response => response.json())
       .then(data => this.setState({chapterlists: data.chapterlists}));
     }, 4000);
-    //This somehow linked with img src...werid me out.//
   }
 
   loggedOut(){
@@ -93,7 +82,7 @@ class TheMain extends Component {
             <Route path='/MainPage/WrapItUp' render={(props) => <TheEnd {...props} chapterlists={chapterlists} />} />
           </Switch>
           <section className='ideaSuggestionsBar'>
-          <SuggestionsList />
+            <SuggestionsList />
           </section>
         </section>
         <div className="dropdown-bar mobile-suggestionsBar" ref={this.secondContainer}>
