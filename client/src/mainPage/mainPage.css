@@ -208,12 +208,12 @@ ul > .chapter {
   margin: 0 auto;
 }
 .slider-control-centerleft{
-  top: 91% !important;
-  left: 24% !important;
+  top: 104% !important;
+  left: 31% !important;
 }
 .slider-control-centerright{
-  top: 91% !important;
-  right: 24% !important;
+  top: 104% !important;
+  right: 31% !important;
 }
 ul.slider-list{
   cursor: initial !important;
@@ -354,6 +354,7 @@ ul.slider-list{
   margin: 0px 30px;
   border-radius: 5px;
   position: relative;
+  z-index: 2;
 }
 .react-tabs__tab-panel--selected {
  display: block;
@@ -552,7 +553,8 @@ ul.slider-list{
   margin: 19px 6px 5px;
 }
 .goPrevious{
-  width: 45px;
+  width: 33px;
+  padding: 0;
   background: none;
   border: none;
 }
@@ -766,6 +768,9 @@ ul.slider-list{
   .invisibleBox:hover .storyPlot-tooltip{
     visibility: hidden;
   }
+  .invisibleBox{
+    z-index: -1;
+  }
   .StoryMakingContainer{
     height: 74vh;
     position: absolute;
@@ -807,7 +812,7 @@ ul.slider-list{
     width: 30%;
   }
 .hexBox{
-    margin: 4% auto;
+    margin: 3% auto;
   }
 .react-tabs__tab{
     --minFontSize: 12px;
@@ -819,5 +824,34 @@ ul.slider-list{
 @media only screen and (min-width: 756px){
   .dropdown-bar{
     visibility: hidden;
+  }
+}
+@media only screen and (max-width: 415px) and (min-width: 400px){
+  .hexBox{
+    height: 270px;
+  }
+  .slider-control-centerleft{
+    top: 106% !important;
+  }
+  .slider-control-centerright{
+    top: 106% !important;
+  }
+}
+@media only screen and (max-width: 399px){
+  /* .hexBox{
+    height: 300px;
+  } */
+  .slider-control-centerleft{
+    top: 106% !important;
+    left: 25% !important;
+  }
+  .slider-control-centerright{
+    top: 106% !important;
+    right: 25% !important;
+  }
+}
+@media only screen and (max-width: 320px){
+  .hexBox{
+    height: 265px;
   }
 }
