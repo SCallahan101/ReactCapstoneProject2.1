@@ -1,68 +1,32 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Name of my app is The Draftboard!
 
-## Available Scripts
+The link to the live app: https://dry-castle-28963.herokuapp.com/
 
-In the project directory, you can run:
+API:
 
-### `npm start`
+https://gyazo.com/9a63ffd6898f6a351eca0d5fedf9cebf
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+You can register your own writer account.
+If not, you can use the dummy account - Username: TestUser01 | Password: TestUser01
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+https://gyazo.com/6898e713e1a722f41c9804dc67ddaac9
 
-### `npm test`
+A short introduction. As you can see there's several features going on here. Basically, this app is design to break down the writer's thinking blocks. In order to do that, I am bring in psychological aspects in this. Such as Word Triggers, Color Psychology, Visual Cues, and Pictures. They are help to stimulate your subconscious promote some kind of underlying connections that you haven't seen before.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+https://gyazo.com/bc1933e6f044510a8f5f0c9d6bbdf5b4
 
-### `npm run build`
+You get to write your own storyplot by create chapters to make it as a whole. You will see the whole chapters in the ending. It is also a place where you can do all changes or delete accord to your wishes.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+https://gyazo.com/80c398a28d252584ace8bf8b715549f2
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+In the ending, you can see your whole storyplot here. Plus, you can see some interesting information regarding the psychological stuff. As I hope this app would help the writer to see what he/she ended up with the whole works.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Stuff that I used to create this App:
+-HTML
+-CSS
+-JavaScript
+-Node.js
+-React
+-Mongodb
+-mLab
+-npm
