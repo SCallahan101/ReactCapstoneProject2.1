@@ -11,16 +11,16 @@ class App extends Component {
   render(){
   return (
     <div className='App'>
-      <header>
+      <header role="banner">
         <h1 className='TopBoard'>DraftBoard</h1>
       </header>
-      <main className='mainFrameApp'>
+      <main className='mainFrameApp' role="main">
         <Switch>
           <Route exact path='/' component={Welcome} />
           <Route path='/MainPage' component={TheMain} />
         </Switch>
       </main>
-      <Particles className="Particles"
+      <Particles className="Particles" role="img" aria-label="colorful background"
       params={{
          "particles": {
           "number": {

@@ -13,14 +13,14 @@ class createTheStory extends Component {
           <NavLink to={'/MainPage/Choices'} activeClassName='previousPage' >
             <button className='goPrevious modal-btn'>
               <span className='back-tooltip'>Previous</span>
-              <img src={BackButton} />
+              <img src={BackButton} alt="left-arrow-previous"/>
             </button>
           </NavLink>
           <ListToAdd />
           <NavLink to={'/MainPage/WrapItUp'} activeClassName='finalizeStory' >
             <button className='finishUp modal-btn '>
             <span className='finalize-tooltip'>Finalize Your Story</span>
-              <img src={Finalize} />
+              <img src={Finalize} alt="double-right-arrows-finalize"/>
             </button>
           </NavLink>
         </div>

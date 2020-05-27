@@ -2,6 +2,8 @@ Name of my app is The Draftboard!
 
 The link to the live app: https://dry-castle-28963.herokuapp.com/
 
+Summary: The idea is to present a platform for any writers who have a struggle with the infamous writer's writing blocks. The platform design is to provide various stimulating actions to the writer's subconscious to assist any actions that spur an idea. It may be emotion-related, word-related, visual cues related, or whatever that trigger the thought. 
+
 API:
 
 https://gyazo.com/9a63ffd6898f6a351eca0d5fedf9cebf

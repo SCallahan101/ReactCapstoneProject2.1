@@ -59,19 +59,22 @@ class ListToAdd extends Component {
   render(){
     return (
       <div className='chapterModalContainer'>
-      <button className='modal outside-btn' onClick={e => { this.showModal(e); }}>Fill out chapter information</button>
-      <ModalBox onClose={this.showModal} show={this.state.show}>
-      <form className='fillingStory' onSubmit={this.handleSubmit}>
-        <input className='chapterNumber' type='text' placeholder='Chapter-nth?' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
-        <br />
-        <input className='titleInput' type='text' placeholder='Type your title' value={this.state.title} onChange={e => this.setState({title: e.target.value})} name='title' />
-        <br />
-        <textarea className='storyBox' placeholder='Type your story down here!' value={this.setState.content} onChange={e => this.setState({content: e.target.value})} name='content'></textarea>
-        <button className='chapterSubmit' type='submit'>Add Chapter </button>
-        <button className='modal inside-btn' onClick={e => { this.showModal(e); }}><img src={WindowCloseSvg} /></button>
-        <span> </span>
-      </form>
-      </ModalBox>
+        <button className='modal outside-btn' onClick={e => { this.showModal(e); }}>Fill out chapter information</button>
+        <ModalBox onClose={this.showModal} show={this.state.show}>
+        <form className='fillingStory' onSubmit={this.handleSubmit}>
+          <label hidden>Chapter Number:</label>
+          <input className='chapterNumber' type='text' aria-label="type-in-chapter-number" placeholder='Chapter-nth?' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
+          <br />
+          <label hidden>Create Title:</label>
+          <input className='titleInput' type='text' aria-label="create-a-title" placeholder='Type your title' value={this.state.title} onChange={e => this.setState({title: e.target.value})} name='title' />
+          <br />
+          <label hidden>Create Content:</label>
+          <textarea className='storyBox'  aria-label="create-your-chapter-story" placeholder='Type your story down here!' value={this.setState.content} onChange={e => this.setState({content: e.target.value})} name='content'></textarea>
+          <button className='chapterSubmit' type='submit'>Add Chapter </button>
+          <button className='modal inside-btn' onClick={e => { this.showModal(e); }}><img src={WindowCloseSvg} alt="X-mark-cancel"/></button>
+          <span> </span>
+        </form>
+        </ModalBox>
       </div>
     )
   }

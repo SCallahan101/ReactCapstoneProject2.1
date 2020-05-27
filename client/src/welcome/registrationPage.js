@@ -109,26 +109,31 @@ handleSubmit = async e =>{
     const {passwordIsMasked} = this.state;
     return(
       <div className='registrationBoard'>
-        <button className='registration-btn reg-draw-border' onClick={(e) => this.togglePanel(e)}>Create a Storyteller Account</button>
+        <button className='registration-btn reg-draw-border' role="button" onClick={(e) => this.togglePanel(e)}>Create a Storyteller Account</button>
         <br />
         {this.state.open ? (
           <form className='registrationForm' onSubmit={this.handleSubmit}>
             <FormErrors formErrors={this.state.formErrors} />
             <div className={`${this.errorClass(this.state.formErrors.password)}`}></div>
-            <input className='username reg-box' type='text' placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
+            <label hidden>Create username:</label>
+            <input className='username reg-box' type='text'  aria-label="create-username" placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
             <div className='passwordContainer'>
-            <input className='password reg-box' type={passwordIsMasked ? 'password' : 'text'} placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
-            <span className='togglePeekReg'onClick={this.togglePeek} ><img src={OpenEye} /></span>
+                <label hidden>Create password:</label>
+                <input className='password reg-box' type={passwordIsMasked ? 'password' : 'text'}  aria-label="create-password" placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
+                <span className='togglePeekReg'onClick={this.togglePeek} ><img src={OpenEye}  alt="toggle-eye"/></span>
             </div>
             <br />
-            <input className='firstName reg-box' type='text' placeholder='Your first name?' name='firstName' value={this.state.firstName} onChange={e => this.setState({firstName: e.target.value})}/>
-            <input className='lastName reg-box' type='text' placeholder='Your last name?' name='lastName' value={this.state.lastName} onChange={e => this.setState({lastName: e.target.value})}/>
+            <label hidden>First name:</label>
+            <input className='firstName reg-box' type='text'  aria-label="type-in-first-name" placeholder='Your first name?' name='firstName' value={this.state.firstName} onChange={e => this.setState({firstName: e.target.value})}/>
+            <label hidden>Last name:</label>
+            <input className='lastName reg-box' type='text'  aria-label="type-in-last-name" placeholder='Your last name?' name='lastName' value={this.state.lastName} onChange={e => this.setState({lastName: e.target.value})}/>
             <br />
             <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`} >
-            <input className='email reg-box' type='email' placeholder='Your Email?' name='email' value={this.state.email} onChange={this.handleChange} />
+            <label hidden>Email:</label>
+            <input className='email reg-box' type='email'  aria-label="type-in-your-email" placeholder='Your Email?' name='email' value={this.state.email} onChange={this.handleChange} />
             </div>
-            <button type='submit' className='register-btn reg-draw-border' disabled={!this.state.formValid}>Register</button>
-            <button type='button' className='register-btn reg-draw-border' onClick={(e) => this.togglePanel(e)}>Cancel</button>
+            <button type='submit' className='register-btn reg-draw-border' role="button" disabled={!this.state.formValid}>Register</button>
+            <button type='button' className='register-btn reg-draw-border' role="button" onClick={(e) => this.togglePanel(e)}>Cancel</button>
           </form>
         ): null}
       </div>

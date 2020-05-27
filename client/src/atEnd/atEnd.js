@@ -108,13 +108,13 @@ handleEditSubmit = async e =>{
             <div className='progressContainer'>
             <ul className='progressLine'>
               {this.props.chapterlists.map(chapterlist => <li className='progressBox' key={chapterlist.id}>
-                  <button className='deleteChapter' onClick={() => this.deleteChapter(chapterlist)}><img src={DeleteSvg} /></button>
+                  <button className='deleteChapter' onClick={() => this.deleteChapter(chapterlist)}><img src={DeleteSvg} alt="X-circle-delete" /></button>
                   <div>Chapter: {chapterlist.chapterNum}</div>
                   <div>Title: {chapterlist.title}</div>
                   <div hidden>{chapterlist.content}</div>
                   <button className='editTheChapter' onClick={e => { this.openEditModal(e); }}>
                   <span className='edit-tooltip'>Edit</span>
-                    <img src={EditSvg} value={chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content} onClick={this.selectedChapter.bind(this, chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content)} />
+                    <img src={EditSvg} alt="edit-typewriter" value={chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content} onClick={this.selectedChapter.bind(this, chapterlist.id, chapterlist.chapterNum, chapterlist.title, chapterlist.content)} />
                   </button>
                 </li>)}
             </ul>
@@ -125,18 +125,21 @@ handleEditSubmit = async e =>{
               <div hidden >{this.state.activeId}</div>
               <div className='editWrapper'>
                 <span>Number: </span>
-                <input className='editChapterNumber' type='text' value={this.state.activeChapterNum} onChange={e => this.setState({activeChapterNum: e.target.value})} name='chapter' />
+                <label hidden>Edit Chapter Number:</label>
+                <input className='editChapterNumber' type='text'  aria-label="edit-or-leave-chapter-number" value={this.state.activeChapterNum} onChange={e => this.setState({activeChapterNum: e.target.value})} name='chapter' />
               </div>
               <div className='editWrapper'>
                 <span>Title: </span>
-                <input className='editTitleInput' type='text' value={this.state.activeTitle} onChange={e => this.setState({activeTitle: e.target.value})} name='title' />
+                <label hidden>Edit Title:</label>
+                <input className='editTitleInput' type='text'  aria-label="edit-or-leave-title" value={this.state.activeTitle} onChange={e => this.setState({activeTitle: e.target.value})} name='title' />
               </div>
               <br />
               <p className='draftContent'>Content</p>
-              <textarea className='editStoryBox' value={this.state.activeContent} onChange={e => this.setState({activeContent: e.target.value})} name='content'></textarea>
+              <label hidden>Edit Content:</label>
+              <textarea className='editStoryBox' aria-label="edit-or-leave-chapter-story" value={this.state.activeContent} onChange={e => this.setState({activeContent: e.target.value})} name='content'></textarea>
               <br />
               <button className='editChapterSubmit' type='submit'>Edit it</button>
-              <button className='editModalClose-btn' onClick={e => { this.openEditModal(e); }}><img src={WindowCloseSvg}  /></button>
+              <button className='editModalClose-btn' onClick={e => { this.openEditModal(e); }}><img src={WindowCloseSvg}  alt="X-mark-cancel"/></button>
             </form>
             </EditModal>
           </TabPanel>
