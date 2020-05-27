@@ -115,22 +115,22 @@ handleSubmit = async e =>{
           <form className='registrationForm' onSubmit={this.handleSubmit}>
             <FormErrors formErrors={this.state.formErrors} />
             <div className={`${this.errorClass(this.state.formErrors.password)}`}></div>
-            <label hidden>Create username:</label>
-            <input className='username reg-box' type='text'  aria-label="create-username" placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
+            <label htmlFor="username reg-box" hidden>Create username:</label>
+            <input className='username reg-box' type='text'  aria-label="create-username" aria-required="true" placeholder='Create your username' name='username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
             <div className='passwordContainer'>
-                <label hidden>Create password:</label>
-                <input className='password reg-box' type={passwordIsMasked ? 'password' : 'text'}  aria-label="create-password" placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
+                <label htmlFor="password reg-box" hidden>Create password:</label>
+                <input className='password reg-box' type={passwordIsMasked ? 'password' : 'text'}  aria-label="create-password" aria-required="true" placeholder='Create your password' name='password' value={this.state.password} onChange={this.handleChange} />
                 <span className='togglePeekReg'onClick={this.togglePeek} ><img src={OpenEye}  alt="toggle-eye"/></span>
             </div>
             <br />
-            <label hidden>First name:</label>
-            <input className='firstName reg-box' type='text'  aria-label="type-in-first-name" placeholder='Your first name?' name='firstName' value={this.state.firstName} onChange={e => this.setState({firstName: e.target.value})}/>
-            <label hidden>Last name:</label>
-            <input className='lastName reg-box' type='text'  aria-label="type-in-last-name" placeholder='Your last name?' name='lastName' value={this.state.lastName} onChange={e => this.setState({lastName: e.target.value})}/>
+            <label htmlFor="firstName reg-box" hidden>First name:</label>
+            <input className='firstName reg-box' type='text'  aria-label="type-in-first-name" aria-required="true" placeholder='Your first name?' name='firstName' value={this.state.firstName} onChange={e => this.setState({firstName: e.target.value})}/>
+            <label htmlFor="lastName reg-box" hidden>Last name:</label>
+            <input className='lastName reg-box' type='text'  aria-label="type-in-last-name" aria-required="true" placeholder='Your last name?' name='lastName' value={this.state.lastName} onChange={e => this.setState({lastName: e.target.value})}/>
             <br />
             <div className={`form-group ${this.errorClass(this.state.formErrors.email)}`} >
-            <label hidden>Email:</label>
-            <input className='email reg-box' type='email'  aria-label="type-in-your-email" placeholder='Your Email?' name='email' value={this.state.email} onChange={this.handleChange} />
+            <label htmlFor="email reg-box" hidden>Email:</label>
+            <input className='email reg-box' type='email'  aria-label="type-in-your-email" aria-required="true" placeholder='Your Email?' name='email' value={this.state.email} onChange={this.handleChange} />
             </div>
             <button type='submit' className='register-btn reg-draw-border' role="button" disabled={!this.state.formValid}>Register</button>
             <button type='button' className='register-btn reg-draw-border' role="button" onClick={(e) => this.togglePanel(e)}>Cancel</button>

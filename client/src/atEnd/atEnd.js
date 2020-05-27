@@ -125,17 +125,17 @@ handleEditSubmit = async e =>{
               <div hidden >{this.state.activeId}</div>
               <div className='editWrapper'>
                 <span>Number: </span>
-                <label hidden>Edit Chapter Number:</label>
+                <label htmlFor="editTheChapter" hidden>Edit Chapter Number:</label>
                 <input className='editChapterNumber' type='text'  aria-label="edit-or-leave-chapter-number" value={this.state.activeChapterNum} onChange={e => this.setState({activeChapterNum: e.target.value})} name='chapter' />
               </div>
               <div className='editWrapper'>
                 <span>Title: </span>
-                <label hidden>Edit Title:</label>
+                <label htmlFor="editTitleInput" hidden>Edit Title:</label>
                 <input className='editTitleInput' type='text'  aria-label="edit-or-leave-title" value={this.state.activeTitle} onChange={e => this.setState({activeTitle: e.target.value})} name='title' />
               </div>
               <br />
               <p className='draftContent'>Content</p>
-              <label hidden>Edit Content:</label>
+              <label htmlFor="editStoryBox" hidden>Edit Content:</label>
               <textarea className='editStoryBox' aria-label="edit-or-leave-chapter-story" value={this.state.activeContent} onChange={e => this.setState({activeContent: e.target.value})} name='content'></textarea>
               <br />
               <button className='editChapterSubmit' type='submit'>Edit it</button>

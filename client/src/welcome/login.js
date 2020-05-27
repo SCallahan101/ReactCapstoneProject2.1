@@ -47,11 +47,11 @@ handleSubmit = async e => {
     return(
       <div>
         <form onSubmit={this.handleSubmit}>
-          <label hidden>Type your Username:</label>
-          <input className='loginUsername' type='text'  aria-label="enter-your-existed-username" placeholder='Enter your username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
+          <label htmlFor="loginUsername" hidden>Type your Username:</label>
+          <input className='loginUsername' type='text'  aria-label="enter-your-existed-username" aria-required="true" placeholder='Enter your username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>
           <div className='passwordContainer'>
-            <label hidden>Type your Password:</label>
-            <input className='loginPw' type={passwordIsMasked ? 'password' : 'text'}  aria-label="enter-your-existed-password" placeholder='Enter your password' value={this.state.password} onChange={e => this.setState({password: e.target.value})}/>
+            <label htmlFor="loginPw" hidden>Type your Password:</label>
+            <input className='loginPw' type={passwordIsMasked ? 'password' : 'text'}  aria-label="enter-your-existed-password" aria-required="true" placeholder='Enter your password' value={this.state.password} onChange={e => this.setState({password: e.target.value})}/>
             <span className='togglePeek'onClick={this.togglePeek} ><img src={OpenEye} alt="toggle-eye"/></span>
           </div>
           <br/>
