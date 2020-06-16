@@ -21,7 +21,7 @@ class Login extends Component {
 componentDidMount(){
   swal({
   title: "Hello Writer!",
-  text: "This site is for writers who having those pesky thought blocks. The solution would be providing you with several subconscious stimulations while creating your story.",
+  text: "This site is for writers who having those pesky thought blocks. The solution would be providing you with several subconscious stimulations while you creating your own story.",
   icon: "info",
    button: "Next",
 })

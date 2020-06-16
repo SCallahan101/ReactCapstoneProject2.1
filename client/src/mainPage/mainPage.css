@@ -793,7 +793,7 @@ ul.slider-list{
     visibility: hidden;
   }
   .hexBox{
-    height: 280px !important;
+    height: 315px !important;
   }
 }
 @media only screen and (min-width: 415px){
