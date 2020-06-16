@@ -18,6 +18,23 @@ class Login extends Component {
     e.preventDefault();
     this.setState(prevState => ({ passwordIsMasked: !prevState.passwordIsMasked}));
 };
+componentDidMount(){
+  swal({
+  title: "Hello Writer!",
+  text: "This site is for writers who having those pesky thought blocks. The solution would be providing you with several subconscious stimulations while creating your story.",
+  icon: "info",
+   button: "Next",
+})
+.then(() => {
+    swal({
+      title: "Materials",
+      text: "The site will be providing you with color psychology, theme word triggers, background pictures for your chapter setting, and visual cue of your story progress.",
+      icon: "info",
+       button: "I am ready to start!",
+    })
+  });
+};
+
 handleSubmit = async e => {
   e.preventDefault();
   console.log(`From the form before FETCH: ${this.state.username} / ${this.state.password}`);
@@ -46,6 +63,10 @@ handleSubmit = async e => {
     const {passwordIsMasked} = this.state;
     return(
       <div>
+        <div>
+          <p>Demo Account:</p>
+          <span>Username: TestUser01 | Password: TestUser01</span>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <label htmlFor="loginUsername" hidden>Type your Username:</label>
           <input className='loginUsername' type='text'  aria-label="enter-your-existed-username" aria-required="true" placeholder='Enter your username' value={this.state.username} onChange={e => this.setState({username: e.target.value})}/>

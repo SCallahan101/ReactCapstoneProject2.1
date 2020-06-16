@@ -6,7 +6,7 @@ class Intro extends Component {
     return (
       <div className='intro'>
         <h2>Welcome to your own brainstorm central!</h2>
-        <p>Basically, this draftboard is here to help you to break down any possible writer blocks that you might have prior to this. There are various psychological assistances such as colors for emotions stimulation, word triggers, visual cues, and background reflections.</p>
+        <p>Why should you use this site to help you to overcome thought blocks? Cause why not? Often things come to you naturally if you let your brain just work itself. That's where the subconscious stimulations come in.</p>
         <NavLink to={'/MainPage/Choices'}><button className='btn draw-border'>Click here to start creating some chapters!!</button></NavLink>
       </div>
     )

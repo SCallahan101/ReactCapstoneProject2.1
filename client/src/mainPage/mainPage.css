@@ -7,55 +7,15 @@
   width: 99vw;
   height: 87vh;
 }
-.StoryMakingContainer {
+.StoryMakingContainer{
+  height: 74vh;
   width: 99%;
-  height: 85vh;
-  display: flex;
   position: absolute;
-  top: 0px;
-}
-.progressBar{
-  position: relative;
-  background: white;
-  margin-right: 9px;
-  width: 18em;
-  font-size: 90%;
-  border: solid black 5px;
-  border-radius: 5px;
-  overflow: overlay;
-}
-.invisibleBox{
-  position: absolute;
-  margin-left: 5px;
-  width: calc(12% + 2.5em);
-  height: 98%;
-  z-index: 1;
-}
-.invisibleBox .storyPlot-tooltip{
-  visibility: hidden;
-  width: 120px;
-  background-color: black;
-  color: #fff;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-  position: absolute;
-  z-index: 1;
-  top: -5px;
-  left: 110%;
-}
-.invisibleBox .storyPlot-tooltip::after{
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 100%;
-  margin-top: -15px;
-  border-width: 15px;
-  border-style: solid;
-  border-color: transparent black transparent transparent;
-}
-.invisibleBox:hover .storyPlot-tooltip{
-  visibility: visible;
+  top: 4em;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 98%;
 }
 ::-webkit-scrollbar {
   width: 0px;
@@ -82,15 +42,6 @@ ul > .chapter {
   margin: 0 auto;
   padding: 5px;
 }
-.ideaSuggestionsBar{
-  background: white;
-  width: 20.2em;
-  margin-left: 9px;
-  border: solid black 5px;
-  border-radius: 5px;
-  font-size: 80%;
-  overflow: overlay;
-}
 .ideaSuggestionsBar > div {
   border-radius: 5px;
   padding: 5px;
@@ -104,9 +55,10 @@ ul > .chapter {
   padding-left: 10px;
   margin-top: 10px;
 }
-.listOfSuggestions{
-  padding-left: 0;
-  padding: 0px 5px;
+.listOfSuggestions {
+  list-style-type: none;
+  padding: 0 20px;
+  font-size: 11px;
 }
 .listOfSuggestions > .singleSuggestion {
   border-bottom: solid black 2px;
@@ -138,13 +90,13 @@ ul > .chapter {
   cursor: pointer;
 }
 .intro{
-  text-align: center;
-  width: 70%;
-  height: fit-content;
-  margin: auto 9%;
+  width: 75%;
+  margin: 20px auto;
+  font-size: .88em;
   background: white;
   padding: 10px;
   border: solid black 5px;
+  text-align: center;
 }
 .hexsContainer{
   display: flex;
@@ -162,15 +114,7 @@ ul > .chapter {
 .hexagon:hover {
   cursor: pointer;
 }
-.settingMessage{
-  border: solid black 2px;
-  padding: 4% 2%;
-  text-align: center;
-  width: 25%;
-  font-size: .9em;
-  margin: 10px auto;
-  background: white;
-}
+
 .BackgroundImageSetting {
   width: 100%;
   height: 100%;
@@ -207,22 +151,14 @@ ul > .chapter {
   width: fit-content;
   margin: 0 auto;
 }
-.slider-control-centerleft{
-  top: 104% !important;
-  left: 31% !important;
-}
-.slider-control-centerright{
-  top: 104% !important;
-  right: 31% !important;
-}
 ul.slider-list{
   cursor: initial !important;
 }
 .hexBox{
   cursor: initial;
-  height: 280px;
+  height: 265px;
   width: 95%;
-  margin: 10% auto;
+  margin: 3% auto;
   flex: 0 0 auto;
   filter: drop-shadow(-1px 15px 3px rgba(0, 0, 0, 0.8));
 }
@@ -247,6 +183,7 @@ ul.slider-list{
   padding: 12px;
   width: 60%;
   height: fit-content;
+  z-index: 1;
 }
 .editChapterNumber{
   padding: 5px;
@@ -308,7 +245,7 @@ ul.slider-list{
  padding: 0;
  text-align: center;
 }
-.react-tabs__tab {
+.react-tabs__tab{
  display: inline-block;
  border: 1px solid transparent;
  border-right: solid white 1px;
@@ -320,7 +257,10 @@ ul.slider-list{
  background: black;
  color: white;
  padding: 6px 12px;
- font-size: 1.5vw;
+ --minFontSize: 12px;
+ --maxFontSize: 200px;
+ --scaler: 2vw;
+ font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize));
  cursor: pointer;
 }
 .react-tabs__tab--selected {
@@ -349,7 +289,7 @@ ul.slider-list{
   display: none;
   padding: 0px 0px;
   text-align: center;
-  height: 62vh;
+  height: 56vh;
   overflow: scroll;
   margin: 0px 30px;
   border-radius: 5px;
@@ -530,8 +470,8 @@ ul.slider-list{
 }
 .logout-btn{
   position: absolute;
-  top: -50px;
-  right: 7px;
+  top: -20px;
+  right: 5px;
 }
 .chapterNumber{
   position: absolute;
@@ -751,107 +691,130 @@ ul.slider-list{
   width: 85%;
   margin: 0 auto;
 }
-@media only screen and (max-width: 768px) {
-  .settingMessage{
-    width: 95%;
-  }
+
+.ideaSuggestionsBar{
+  visibility: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
-@media only screen and (max-width: 755px) {
+.progressBar{
+  visibility: hidden;
+  position: absolute;
+}
+.mobile-progressBar{
+  position: absolute;
+  top: 1em;
+  left: 5px;
+}
+.mobile-suggestionsBar{
+  position: absolute;
+  top: 1em;
+  right: 5px;
+}
+.coverList{
+  list-style-type: none;
+  padding: 0px 10px;
+}
+@media only screen and (min-width: 755px){
   .ideaSuggestionsBar{
-    visibility: hidden;
-    position: absolute;
+    background: white;
+    width: 20.2em;
+    margin-left: 9px;
+    border: solid black 5px;
+    border-radius: 5px;
+    font-size: 80%;
+    overflow: overlay;
+    visibility: visible;
+    position: unset;
   }
   .progressBar{
-    visibility: hidden;
+    position: relative;
+    background: white;
+    margin-right: 9px;
+    width: 18em;
+    font-size: 90%;
+    border: solid black 5px;
+    border-radius: 5px;
+    overflow: overlay;
+    visibility: visible;
+    position: unset;
+  }
+  .StoryMakingContainer {
+    width: 99%;
+    height: 85vh;
+    display: flex;
     position: absolute;
-  }
-  .invisibleBox:hover .storyPlot-tooltip{
-    visibility: hidden;
-  }
-  .invisibleBox{
-    z-index: -1;
-  }
-  .StoryMakingContainer{
-    height: 74vh;
-    position: absolute;
-    top: 4em;
-    max-width: 98%;
+    top: 0px;
+    z-index: 1;
+    max-width: unset;
   }
   .intro{
-    width: 75%;
-    margin: 20px auto;
-    font-size: .88em;
+    text-align: center;
+    width: 70%;
+    height: fit-content;
+    margin: auto 9%;
+    background: white;
+    padding: 10px;
+    border: solid black 5px;
   }
   .mobile-progressBar{
-    position: absolute;
-    top: 1em;
-    left: 5px;
-  }
-  .coverList{
-    list-style-type: none;
-    padding: 0px 10px;
+    visibility: hidden;
   }
   .mobile-suggestionsBar{
-    position: absolute;
-    top: 1em;
-    right: 5px;
+    visibility: hidden;
   }
-  .listOfSuggestions {
-    list-style-type: none;
-    padding: 0 20px;
-    font-size: 11px;
+  .listOfSuggestions{
+    padding-left: 0;
+    padding: 0px 5px;
   }
-.react-tabs__tab-panel{
-    height: 56vh;
+  .react-tabs__tab-panel{
+    height: 62vh;
+    }
+  .logout-btn{
+    top: -50px;
+    right: 7px;
   }
-.logout-btn{
-    top: -18px;
-    right: 5px;
-  }
-.settingMessage{
-    width: 30%;
-  }
-.hexBox{
-    margin: 3% auto;
-  }
-.react-tabs__tab{
-    --minFontSize: 12px;
-    --maxFontSize: 200px;
-    --scaler: 2vw;
-    font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize));
+  .react-tabs__tab{
+    font-size: 1.5vw;
   }
 }
+.slider-control-centerleft{
+  top: 106% !important;
+  left: 25% !important;
+}
+.slider-control-centerright{
+  top: 106% !important;
+  right: 25% !important;
+}
+
 @media only screen and (min-width: 756px){
   .dropdown-bar{
     visibility: hidden;
   }
+  .hexBox{
+    height: 280px !important;
+  }
 }
-@media only screen and (max-width: 415px) and (min-width: 400px){
+@media only screen and (min-width: 415px){
+  .slider-control-centerleft{
+    top: 104% !important;
+    left: 30% !important;
+  }
+  .slider-control-centerright{
+    top: 104% !important;
+    right: 30% !important;
+  }
+}
+@media only screen and (min-width: 400px){
   .hexBox{
     height: 270px;
+    margin: 5% auto;
   }
   .slider-control-centerleft{
-    top: 106% !important;
+    top: 104% !important;
   }
   .slider-control-centerright{
-    top: 106% !important;
-  }
-}
-@media only screen and (max-width: 399px){
-  /* .hexBox{
-    height: 300px;
-  } */
-  .slider-control-centerleft{
-    top: 106% !important;
-    left: 25% !important;
-  }
-  .slider-control-centerright{
-    top: 106% !important;
-    right: 25% !important;
-  }
-}
-@media only screen and (max-width: 320px){
-  .hexBox{
-    height: 265px;
+    top: 104% !important;
   }
 }

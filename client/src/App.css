@@ -84,6 +84,7 @@
   font: 700 1.2rem 'Roboto Slab', sans-serif;
   padding: .5em 2em;
   letter-spacing: 0.05rem;
+  font-size: 1rem;
 }
 .login-btn:focus {
   outline: none;
@@ -137,6 +138,7 @@
   font: 700 1.2rem 'Roboto Slab', sans-serif;
   padding: .5em 2em;
   letter-spacing: 0.05rem;
+  font-size: 1rem;
 }
 .registration-btn:focus {
   outline: none;
@@ -159,18 +161,8 @@ button {
 input{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
 }
-@media only screen and (max-width: 600px) {
-  .login-btn{
-    font-size: 1rem;
-  }
-  .registration-btn{
-    font-size: 1rem;
-  }
-}
-@media only screen and (max-width: 1400px){
-  .introContainer{
-    width: 99%;
-    font-size: 12px;
-    position: absolute;
-  }
+.introContainer{
+  width: 99%;
+  font-size: 12px;
+  position: absolute;
 }

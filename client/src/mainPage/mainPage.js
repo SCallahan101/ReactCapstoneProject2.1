@@ -8,6 +8,7 @@ import createTheStory from '../createTheStory/createTheStory';
 import TheEnd from '../atEnd/atEnd';
 import TheList from '../createTheStory/totalProgress';
 import SuggestionsList from './ideaSuggestions';
+import swal from 'sweetalert';
 
 class TheMain extends Component {
   constructor(props){
@@ -36,8 +37,21 @@ class TheMain extends Component {
       };
     });
   };
-
   componentDidMount() {
+    swal({
+      title: "Guidance: Columns",
+      text: "On your left, a non-clickable column showing your storyline progress as a visual cue. On your right, the column with full of the word triggers to help you imagine a theme for individual chapters. You can click the top button to recycle word themes.",
+      icon: "info",
+      button: "Next",
+  })
+  .then(() => {
+      swal({
+        title: "Guidance: Main Box",
+        text: "When you see the multiple pictures by the next slide. It is your setting choices to help you to visualize your chapter's story. When the picked picture pops up to full size. There will be a bottom button where you can feed your chapter information. Then you either do some more chapters or finalize your story.",
+        icon: "info",
+        button: "Let go!",
+      })
+    });
     const preDataId = localStorage.getItem('author');
     const authorId = preDataId.replace(/['"]+/g, '');
     console.log("At GET request for user's list of chapters: " + authorId);
@@ -66,9 +80,6 @@ class TheMain extends Component {
         )}
         </div>
         <section className='StoryMakingContainer'>
-        <div className="invisibleBox">
-            <span className="storyPlot-tooltip">This tab is only to show your progress with your storyline. To see inside your chapters then go to the finalize page.</span>
-        </div>
         <section className='progressBar'>
           <div className='chapterStories'>
             Story Draft

@@ -25,6 +25,14 @@ class TheEnd extends Component{
     });
   };
 
+  componentDidMount(){
+    swal({
+    title: "Wrap Up?",
+    text: "This page is a place where you can do editing or even delete a chapter. In addition, you can learn more about subconscious stimulations in top tabs. If you want to go back to chapter creation page. Just click the bottom button away!",
+    icon: "info",
+     button: "I understand!",
+  });
+};
 async deleteChapter(chapterlist){
   swal({
   title: "Double Checking - Are you sure?",
@@ -99,9 +107,10 @@ handleEditSubmit = async e =>{
             <Tab>Subconscious Mind</Tab>
             <Tab>Words Trigger</Tab>
             <Tab>Visual Cues</Tab>
-            <Tab>Next Action</Tab>
+            <Tab>Links</Tab>
           </TabList>
           <TabPanel>
+            <NavLink to='/MainPage/Choices'activeClassName='backStart'><button className='back-track-btn btn draw-border next-action'>Back to Chapter Creation Page</button></NavLink>
             <h2 className='endTitle'>
               The Story
             </h2>
@@ -126,7 +135,7 @@ handleEditSubmit = async e =>{
               <div className='editWrapper'>
                 <span>Number: </span>
                 <label htmlFor="editTheChapter" hidden>Edit Chapter Number:</label>
-                <input className='editChapterNumber' type='text'  aria-label="edit-or-leave-chapter-number" value={this.state.activeChapterNum} onChange={e => this.setState({activeChapterNum: e.target.value})} name='chapter' />
+                <input className='editChapterNumber' type='number'  aria-label="edit-or-leave-chapter-number" value={this.state.activeChapterNum} onChange={e => this.setState({activeChapterNum: e.target.value})} name='chapter' />
               </div>
               <div className='editWrapper'>
                 <span>Title: </span>
@@ -142,6 +151,7 @@ handleEditSubmit = async e =>{
               <button className='editModalClose-btn' onClick={e => { this.openEditModal(e); }}><img src={WindowCloseSvg}  alt="X-mark-cancel"/></button>
             </form>
             </EditModal>
+
           </TabPanel>
           <TabPanel>
             <div className='factsContent'>
@@ -175,10 +185,6 @@ handleEditSubmit = async e =>{
           </TabPanel>
           <TabPanel>
             <div className='ending-container'>
-              <NavLink to='/MainPage/Choices'activeClassName='backStart'><button className='back-track-btn btn draw-border next-action'>Back to Chapter Creation Page</button></NavLink>
-              <br />
-              <NavLink to='/' activeClassName='exitLink'><button className='btn draw-border next-action'>Logout</button></NavLink>
-              <br />
               <h3>- Links for some deep thoughts -</h3>
               <a href='https://www.standoutbooks.com/3-golden-rules-writing-science-fiction-book/' className='link-btn btn draw-border next-action'>3-Golden Rules</a>
               <br />

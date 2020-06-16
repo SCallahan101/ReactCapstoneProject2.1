@@ -24,3 +24,9 @@
 .editWrapper{
   display: inline-block;
 }
+.back-track-btn{
+  background: white !important;
+  border: 2px solid !important;
+  margin: 10px 0 0;
+  font-size: 12px;
+}

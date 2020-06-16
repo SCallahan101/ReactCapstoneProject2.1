@@ -35,17 +35,24 @@ class ListToAdd extends Component {
       },
       body: JSON.stringify({userId: idAuthor, chapterNum: this.state.chapterNum, title: this.state.title, content: this.state.content}),
     })
-    .then(data => {
-      swal("Confirmed!", "Your new additional chapter has been added to your Storyline!", "success");
-      this.setState({
-        chapterNum: '',
-        title: '',
-        show: false
-      });
-    })
+    .then(response => {
+          const data = response.json();
+          if(!response.ok){
+            const error = (data && data.message) || response.statusText;
+            console.log("status: " + error);
+            return Promise.reject(error + " - check your inputs.");
+          } else {
+            swal("Confirmed!", "Your new additional chapter has been added to your Storyline!", "success");
+            this.setState({
+              chapterNum: '',
+              title: '',
+              show: false
+            });
+          }
+        })
     .catch((error) => {
       console.error("Error: ", error);
-      swal("ERROR!", "Something amissing or wrong input: " + error, "error");
+      swal("ERROR!", "Someting went wrong with your submission: " + error);
     });
   };
   state = {
@@ -63,7 +70,7 @@ class ListToAdd extends Component {
         <ModalBox onClose={this.showModal} show={this.state.show}>
         <form className='fillingStory' onSubmit={this.handleSubmit}>
           <label htmlFor="chapterNumber" hidden>Chapter Number:</label>
-          <input className='chapterNumber' type='text' aria-label="type-in-chapter-number" aria-required="true" placeholder='Chapter-nth?' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
+          <input className='chapterNumber' type='number' aria-label="type-in-chapter-number" aria-required="true" placeholder='Chapter-nth?' value={this.state.chapterNum} onChange={e => this.setState({chapterNum: e.target.value})} name='chapter' />
           <br />
           <label htmlFor="titleInput" hidden>Create Title:</label>
           <input className='titleInput' type='text' aria-label="create-a-title" aria-required="true" placeholder='Type your title' value={this.state.title} onChange={e => this.setState({title: e.target.value})} name='title' />
