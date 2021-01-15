@@ -1,7 +1,12 @@
 const mongoose = require('mongoose');
 
 // old connection - 'mongodb://ReactUser123:ReactPw123@ds259207.mlab.com:59207/react-cap-project-db'
-mongoose.connect("mongodb+srv://ReactUser123:ReactPw123@react-cap-project-db.ay47g.mongodb.net/react-cap-project-db?retryWrites=true&w=majority", {userNewUrlParser: true});
+
+// mongodb+srv://ReactUser123:ReactPw123@react-cap-project-db.ay47g.mongodb.net/react-cap-project-db?retryWrites=true&w=majority
+
+mongodb://ReactUser123:ReactPw123@react-cap-project-db-shard-00-00.ay47g.mongodb.net:27017,react-cap-project-db-shard-00-01.ay47g.mongodb.net:27017,react-cap-project-db-shard-00-02.ay47g.mongodb.net:27017/react-cap-project-db?ssl=true&replicaSet=atlas-p0fqfz-shard-0&authSource=admin&retryWrites=true&w=majority
+
+mongoose.connect("mongodb://ReactUser123:ReactPw123@react-cap-project-db-shard-00-00.ay47g.mongodb.net:27017,react-cap-project-db-shard-00-01.ay47g.mongodb.net:27017,react-cap-project-db-shard-00-02.ay47g.mongodb.net:27017/react-cap-project-db?ssl=true&replicaSet=atlas-p0fqfz-shard-0&authSource=admin&retryWrites=true&w=majority", {userNewUrlParser: true});
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'MongoDB connection issue error:'));
 
